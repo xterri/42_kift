@@ -6,7 +6,7 @@
 #    By: bpierce <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/25 10:27:14 by bpierce           #+#    #+#              #
-#*   Updated: 2017/09/15 20:29:40 by thuynh           ###   ########.fr       *#
+#*   Updated: 2017/09/16 16:15:53 by thuynh           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ T_LOC = theo_src/
 T_NAM = $(addsuffix .c, $(FILES3))
 T_SRC = $(addprefix $(T_LOC3), $(T_NAM))
 
-O_LOC = obj/
+_LOC = obj/
 O_NAM = $(addsuffix .o, $(FILES))
 O_SRC = $(addprefix $(O_LOC), $(O_NAM))
 
