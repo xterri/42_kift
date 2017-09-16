@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 10:46:43 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/13 17:10:35 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/15 21:33:08 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int					ft_iswhitespace(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 void				ft_strtoupper(char **s);
-void				ft_strtolower(char **s);
+void				ft_strtolower(char *s);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);

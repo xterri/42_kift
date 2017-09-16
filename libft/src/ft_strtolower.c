@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/21 14:59:28 by bpierce           #+#    #+#             */
-/*   Updated: 2017/07/21 15:03:12 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/15 21:32:47 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 ** Turns all upper-case alphabet characters in string to lower case.
 */
 
-void	ft_strtolower(char **s)
+void	ft_strtolower(char *s)
 {
 	int	i;
 
 	i = 0;
-	while (s[0][i])
+	while (s[i])
 	{
-		if (s[0][i] > 64 && s[0][i] < 91)
-			s[0][i] += 32;
+		if (s[i] > 64 && s[i] < 91)
+			s[i] += 32;
 		i++;
 	}
 	return ;

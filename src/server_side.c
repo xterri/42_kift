@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/15 20:05:23 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/15 21:37:21 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void 	*receive_client_message(void *socket)
 			ft_putstr("connection closed\n");
 			break ;
 		}
+		ft_strtolower(buf);
 		response = respond(buf);
 		dup2(s->fds[1], 1);
 		ft_putendl_fd(buf, s->stdout_save);
