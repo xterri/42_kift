@@ -17,6 +17,17 @@ static char	*unsure_response(void)
 	return (strdup("I didn't get that"));
 }
 
+static char	*response_pt2(int topic, char *str, int negation)
+{
+	if (topic == WHO)
+		return (who_response(str, negation));
+	if (topic == WHERE)
+		return (where_response(str, negation));
+	if (topic == TEXT)
+		return (text_response(str, negation));
+	return (unsure_response());
+}
+
 static char	*response(int topic, char *str, int negation)
 {
 	if (topic == ALARM)
@@ -35,7 +46,7 @@ static char	*response(int topic, char *str, int negation)
 		return (web_response(str, negation));
 	if (topic == HISTORY)
 		return (history_response(str, negation));
-	return (unsure_response());
+	return (response_pt2(topic, str, negation));
 }
 
 char	*respond(char *str)

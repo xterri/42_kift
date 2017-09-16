@@ -33,7 +33,9 @@
 #define MUSIC 6
 #define WEB 7
 #define HISTORY 8
-
+#define TEXT 9
+#define WHO 10
+#define WHERE 11
 
 char	*respond(char *str);
 int	get_topic(char *str);
@@ -50,6 +52,9 @@ char	*traffic_response(char *str, int negation);
 char	*music_response(char *str, int negation);
 char	*web_response(char *str, int negation);
 char	*history_response(char *str, int negation);
+char	*text_response(char *str, int negation);
+char	*who_response(char *str, int negation);
+char	*where_response(char *str, int negation);
 
 char	*strjoin(char *str1, char *str2);
 

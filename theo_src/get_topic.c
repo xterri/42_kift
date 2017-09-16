@@ -12,14 +12,25 @@
 
 #include "server.h"
 
+static int	get_topic_pt2(char *str)
+{
+	if (strstr(str, " who ") && strstr(str, " connect"))
+		return (WHO);
+	if (strstr(str, " where ") && strstr(str, " connect"))
+		return (WHERE);
+	return (0);
+}
+
 int	get_topic(char *str)
 {
 	if (strstr(str, " alarm ") || strstr(str, " timer "))
 		return (ALARM);
 	if (strstr(str,	" lights "))
 		return (LIGHTS);
-	if (strstr(str,	" email ") || strstr(str, " message ") || strstr(str, " sms "))
+	if (strstr(str,	" email "))
 		return (EMAIL);
+	if (strstr(str, " message ") || strstr(str, " sms "))
+		return (TEXT);
 	if (strstr(str,	" weather ") || strstr(str, " temperature "))
 		return (WEATHER);
 	if (strstr(str,	" traffic "))
@@ -33,5 +44,5 @@ int	get_topic(char *str)
 		return (WEB);
 	if (strstr(str,	" history "))
 		return (HISTORY);
-	return (0);
+	return (get_topic_pt2(str));
 }

@@ -23,7 +23,8 @@ FILES2 = client_side
 FILES3 = alarm_response count_negations email_response find_time_phrase \
 		 get_first_num get_topic history_response lights_response \
 		 music_response respond strjoin traffic_response weather_at \
-		 weather_response web_response
+		 weather_response web_response text_response who_response \
+		 where_response \
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FILES))
