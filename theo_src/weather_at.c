@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/08 18:26:44 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/15 20:08:17 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/16 14:25:20 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ char	*weather_at(char *location)
 	FILE *fp;
 	char *temp[3];
 
-	write(1, "2", 1);
 	sprintf(buf, "curl wttr.in/~%s", location);
 	if (!(fp = popen(buf, "r")))
 		exit(1);
