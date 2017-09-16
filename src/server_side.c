@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/16 15:20:40 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/16 16:32:12 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void 	*receive_client_message(void *socket)
 		}
 		if (!(ft_strequ(buf, "\n")))
 		{
-			ft_strtolower(buf);
 			buf[ft_strlen(buf) - 1] = '\0';
 			response = respond(buf);
 			dup2(s->fds[1], 1);
