@@ -6,15 +6,24 @@
 #    By: bpierce <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/25 10:27:14 by bpierce           #+#    #+#              #
-#*   Updated: 2017/09/13 17:13:55 by thuynh           ###   ########.fr       *#
+#*   Updated: 2017/09/15 20:29:40 by thuynh           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 NAME = server
 NAME2 = client
 
-FILES = server_side load check unload hash_function
+FILES = server_side \
+		load check unload hash_function  
+# ^terri's database for loading and checking
+
 FILES2 = client_side
+
+# theo's response functions and stuff
+FILES3 = alarm_response count_negations email_response find_time_phrase \
+		 get_first_num get_topic history_response lights_response \
+		 music_response respond strjoin traffic_response weather_at \
+		 weather_response web_response
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FILES))
@@ -24,6 +33,10 @@ C_LOC2 = src2/
 C_NAM2 = $(addsuffix .c, $(FILES2))
 C_SRC2 = $(addprefix $(C_LOC2), $(C_NAM2))
 
+T_LOC = theo_src/
+T_NAM = $(addsuffix .c, $(FILES3))
+T_SRC = $(addprefix $(T_LOC3), $(T_NAM))
+
 O_LOC = obj/
 O_NAM = $(addsuffix .o, $(FILES))
 O_SRC = $(addprefix $(O_LOC), $(O_NAM))
@@ -32,12 +45,16 @@ O_LOC2 = obj2/
 O_NAM2 = $(addsuffix .o, $(FILES2))
 O_SRC2 = $(addprefix $(O_LOC2), $(O_NAM2))
 
+O_LOC3 = theo_obj/
+O_NAM3 = $(addsuffix .o, $(FILES3))
+O_SRC3 = $(addprefix $(O_LOC3), $(O_NAM3))
+
 LIB_LOC = libft/
 LIB_NAM = libft.a
 LIB_SRC = $(addprefix $(LIB_LOC), $(LIB_NAM))
 
 H_LOCS = -I inc -I libft/inc
-HEADERS = inc/server.h inc/database.h libft/inc/libft.h
+HEADERS = inc/server.h inc/database.h inc/respond.h libft/inc/libft.h
 
 C_FLAGS = -Wall -Wextra -Werror
 
@@ -60,7 +77,7 @@ END_COLOUR = \033[0m
 
 all: $(NAME) $(NAME2)
 
-$(NAME): $(O_SRC) $(LIB_SRC)
+$(NAME): $(O_SRC) $(O_SRC3) $(LIB_SRC)
 	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
 	@gcc $(C_FLAGS) $^ -lpthread -o $@
 
@@ -73,6 +90,10 @@ $(O_LOC)%.o: $(C_LOC)%.c $(HEADERS)
 	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
 
 $(O_LOC2)%.o: $(C_LOC2)%.c $(HEADERS)
+	@echo "$(GREY)Re-compiling src file... $(END_COLOUR)$(YELLOW)$<$(END_COLOUR)"
+	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
+
+$(O_LOC3)%.o: $(T_LOC)%.c $(HEADERS)
 	@echo "$(GREY)Re-compiling src file... $(END_COLOUR)$(YELLOW)$<$(END_COLOUR)"
 	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
 
