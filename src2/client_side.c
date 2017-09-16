@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:20:16 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/15 20:44:47 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/15 20:47:47 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,7 @@ int		main(int argc, char **argv)
 	if (pid == 0)
 	{
 		dup2(s.fds[1], 1);
-		system("pocketsphinx_continuous -inmic yes -lm lm_dict/9214.lm 
-				-dict lm_dict/9214.dic -logfn /dev/null");
+		system("pocketsphinx_continuous -inmic yes -lm lm_dict/9214.lm -dict lm_dict/9214.dic -logfn /dev/null");
 		close(s.fds[1]);
 		dup2(s.stdout_save, 1);
 	}
