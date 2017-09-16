@@ -1,0 +1,16 @@
+set an alarm
+set timer
+turn on lights
+turn off lights
+send email
+send sms
+send message
+check events
+check weather
+check temperature
+check traffic
+who is connected
+where is connected
+play music
+search the web for 
+check history

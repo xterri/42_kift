@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:52 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/15 10:50:52 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/15 19:10:38 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include "libft.h"
 # include "database.h"
+# include "respond.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
