@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 18:55:29 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/15 20:53:23 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/15 21:28:18 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 int	get_topic(char *str)
 {
-	if (strstr(str, " ALARM ") || strstr(str, " TIMER "))
+	if (strstr(str, " alarm ") || strstr(str, " timer "))
 		return (ALARM);
-	if (strstr(str,	" LIGHTS"))
+	if (strstr(str,	" lights "))
 		return (LIGHTS);
-	if (strstr(str,	" EMAIL ") || strstr(str, " MESSAGE ") || strstr(str, " SMS "))
+	if (strstr(str,	" email ") || strstr(str, " message ") || strstr(str, " sms "))
 		return (EMAIL);
-	if (strstr(str,	" WEATHER ") || strstr(str, " TEMPERATURE "))
+	if (strstr(str,	" weather ") || strstr(str, " temperature "))
 		return (WEATHER);
-	if (strstr(str,	" TRAFFIC "))
+	if (strstr(str,	" traffic "))
 		return (TRAFFIC);
-	if (strstr(str,	" MUSIC ") || strstr(str, " PLAY ") ||
-		strstr(str, " LISTEN TO "))
+	if (strstr(str,	" music ") || strstr(str, " play ") ||
+		strstr(str, " listen to "))
 	{
 		return (MUSIC);
 	}
-	if (strstr(str,	" SEARCH "))
+	if (strstr(str,	" search "))
 		return (WEB);
-	if (strstr(str,	" HISTORY "))
+	if (strstr(str,	" history "))
 		return (HISTORY);
 	return (0);
 }
