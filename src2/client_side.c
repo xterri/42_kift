@@ -32,9 +32,9 @@ void	*receive_server_message(void *socket)
 		ft_bzero(buf, 256);
 		if ((s->n = recv(s->client_socket_fd, buf, 255, 0)) <= 0)
 			ErrorMessage("Error reading socket");
-		ft_putstr("Server: ");
+		ft_putstr("BAKA: ");
 		ft_putendl(buf);
-		snprintf(buf2, sizeof(buf2), "say \"%s\"", buf);
+		snprintf(buf2, sizeof(buf2), "spd-say \"%s\"", buf);
 		system(buf2);
 	}
 	free(buf);
@@ -54,6 +54,12 @@ void	*send_message_to_server(void *socket)
 		ft_bzero(buf, 256);
 		if ((s->n = read(s->fds[0], buf, 255)) < 0)
 			ErrorMessage("Error reading from stdin to buf");
+		if (!(ft_strequ(buf, "\n")))
+		{
+			ft_strtolower(buf);
+			ft_putstr("YOU: ");
+			ft_putstr(buf);
+		}
 		if ((s->n = send(s->client_socket_fd, buf, s->n, 0)) < 0)
 			ErrorMessage("Error writing in socket");
 	}
