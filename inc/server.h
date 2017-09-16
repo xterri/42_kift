@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:52 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/15 19:10:38 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/16 16:47:35 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct			s_socket
 	char				*buf;
 	unsigned short		port;
 	unsigned int		clilen;
+	struct sockaddr_in	*serv_addr;
+	struct sockaddr_in	*cli_addr;
 }						t_socket;
 
 #endif
