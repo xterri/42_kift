@@ -6,11 +6,11 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/08 18:26:44 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/08 18:26:44 by twalton          ###   ########.fr       */
+/*   Updated: 2017/09/15 20:08:17 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "respond.h"
+#include "server.h"
 
 static char	*get_word_begin(char *buf)
 {

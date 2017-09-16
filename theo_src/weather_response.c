@@ -6,11 +6,11 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 22:00:52 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/07 22:00:52 by twalton          ###   ########.fr       */
+/*   Updated: 2017/09/15 20:08:27 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "respond.h"
+#include "server.h"
 
 static char	*get_weather_loc(char *str)
 {

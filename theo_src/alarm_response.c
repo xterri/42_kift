@@ -6,11 +6,11 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 22:02:16 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/06 22:02:16 by twalton          ###   ########.fr       */
+/*   Updated: 2017/09/15 20:05:59 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "respond.h"
+#include "server.h"
 
 static char	*actual_word(int time_measurement, int plural)
 {

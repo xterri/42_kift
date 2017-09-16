@@ -6,11 +6,11 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 19:47:07 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/07 19:47:07 by twalton          ###   ########.fr       */
+/*   Updated: 2017/09/15 20:07:57 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "respond.h"
+#include "server.h"
 
 char	*strjoin(char *str1, char *str2)
 {

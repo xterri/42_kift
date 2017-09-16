@@ -6,11 +6,11 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 23:12:21 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/07 23:12:21 by twalton          ###   ########.fr       */
+/*   Updated: 2017/09/15 20:07:10 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "respond.h"
+#include "server.h"
 
 char	*history_response(char *str, int negation)
 {

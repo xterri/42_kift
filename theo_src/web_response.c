@@ -6,11 +6,11 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 22:59:58 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/15 18:27:41 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/15 20:08:35 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "respond.h"
+#include "server.h"
 
 static char	*get_search(char *str)
 {

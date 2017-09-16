@@ -6,11 +6,11 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 21:49:54 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/06 21:49:54 by twalton          ###   ########.fr       */
+/*   Updated: 2017/09/15 20:07:41 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "respond.h"
+#include "server.h"
 
 static char	*unsure_response(void)
 {

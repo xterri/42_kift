@@ -6,11 +6,11 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 18:55:29 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/15 19:54:11 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/15 20:06:53 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "respond.h"
+#include "server.h"
 
 int	get_topic(char *str)
 {

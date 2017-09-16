@@ -6,11 +6,11 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 17:53:21 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/07 17:53:21 by twalton          ###   ########.fr       */
+/*   Updated: 2017/09/15 20:06:27 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "respond.h"
+#include "server.h"
 
 static void	free_array(char **unit_array)
 {
