@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 18:55:29 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/15 20:06:53 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/15 20:53:23 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_topic(char *str)
 		return (ALARM);
 	if (strstr(str,	" LIGHTS"))
 		return (LIGHTS);
-	if (strstr(str,	"MAIL ") || strstr(str, " MESSAGE ") || strstr(str, " SMS "))
+	if (strstr(str,	" EMAIL ") || strstr(str, " MESSAGE ") || strstr(str, " SMS "))
 		return (EMAIL);
 	if (strstr(str,	" WEATHER ") || strstr(str, " TEMPERATURE "))
 		return (WEATHER);
