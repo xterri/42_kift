@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/15 21:37:21 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/16 12:58:12 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void 	*receive_client_message(void *socket)
 			break ;
 		}
 		ft_strtolower(buf);
+		buf[ft_strlen(buf) - 1] = '\0';
 		response = respond(buf);
 		dup2(s->fds[1], 1);
 		ft_putendl_fd(buf, s->stdout_save);
