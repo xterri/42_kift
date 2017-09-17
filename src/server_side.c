@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/16 17:03:03 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/16 18:11:39 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ void 	*receive_client_message(void *socket)
 		if (!(ft_strequ(buf, "\n")))
 		{
 			buf[ft_strlen(buf) - 1] = '\0';
+			// if getting client name first, log function will need to append here
 			// pass buff string to log function
 			response = respond(buf);
-			ft_strequ(response, "%?") ? 
-				response = inet_ntoa(s->cli_addr->sin_addr) : 0;
+			ft_strequ(response, "%?") ? response = s->client_ip : 0;
 			dup2(s->fds[1], 1);
 			ft_putendl_fd(buf, s->stdout_save);
 			write(s->fds[1], response, ft_strlen(response));
@@ -114,9 +114,9 @@ int		main(int argc, char **argv)
 			if ((s.client_socket_fd = accept(s.server_socket_fd,
 							(struct sockaddr *)&cli_addr, &s.clilen)) < 0)
 				ErrorMessage("Error on accept");
-			s.cli_addr = &cli_addr;
+			s.client_ip = inet_ntoa(cli_addr.sin_addr);
 			ft_putstr("Client connected... ");
-			printf("%s\n", inet_ntoa(cli_addr.sin_addr));
+			ft_putendl(s.client_ip);
 			if (pipe(s.fds) < 0)
 				ErrorMessage("Piping failed");
 			s.stdin_save = dup(0);
