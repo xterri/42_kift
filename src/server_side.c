@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/16 16:50:25 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/16 17:03:03 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ void 	*receive_client_message(void *socket)
 		if (!(ft_strequ(buf, "\n")))
 		{
 			buf[ft_strlen(buf) - 1] = '\0';
+			// pass buff string to log function
 			response = respond(buf);
-			ft_strequ(response, "%?") ? response = inet_ntoa(s->cli_addr->sin_addr) : 0;
+			ft_strequ(response, "%?") ? 
+				response = inet_ntoa(s->cli_addr->sin_addr) : 0;
 			dup2(s->fds[1], 1);
 			ft_putendl_fd(buf, s->stdout_save);
 			write(s->fds[1], response, ft_strlen(response));
