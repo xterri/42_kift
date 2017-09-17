@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 16:22:55 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/13 17:09:36 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/17 14:12:02 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <ctype.h>
 # include <stdlib.h>
+# include <time.h>
 # include <string.h>
 # include <strings.h>
 # include <stdbool.h>
@@ -45,5 +46,6 @@ unsigned int	hash(const char *word);
 char			*check(const char *key);
 int				load(const char *file);
 void			unload(void);
+void			history_log(char *str, void *socket);
 
 #endif

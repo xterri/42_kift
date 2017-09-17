@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/16 18:11:39 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/17 14:11:30 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ void 	*receive_client_message(void *socket)
 		if (!(ft_strequ(buf, "\n")))
 		{
 			buf[ft_strlen(buf) - 1] = '\0';
-			// if getting client name first, log function will need to append here
-			// pass buff string to log function
+			history_log(buf, s);
 			response = respond(buf);
 			ft_strequ(response, "%?") ? response = s->client_ip : 0;
 			dup2(s->fds[1], 1);
