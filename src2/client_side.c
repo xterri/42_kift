@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:20:16 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/15 20:47:47 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/18 09:58:28 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	*send_message_to_server(void *socket)
 	t_socket	*s;
 
 	s = (t_socket *)socket;
+	dup2(s->fds[0], 0);
 	if (!(buf = ft_strnew(255)))
 		return (ft_putnull("Failed to malloc buf for receiving server messages"));
 	while (1)
@@ -93,7 +94,6 @@ int		main(int argc, char **argv)
 	}
 	else
 	{
-		dup2(s.fds[0], 0);
 		if ((s.client_socket_fd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0)
 			ErrorMessage("Error opening socket");
 		s.port = ft_atoi(argv[2]);
