@@ -6,7 +6,7 @@
 #    By: bpierce <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/25 10:27:14 by bpierce           #+#    #+#              #
-#*   Updated: 2017/09/18 11:24:20 by thuynh           ###   ########.fr       *#
+#*   Updated: 2017/09/18 11:50:53 by thuynh           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,12 @@ FILES = bzero memalloc memccpy memchr memcmp memcpy memdel memmove memset \
 		striteri strjoin strfjoin strffjoin strlcat strlen \
 		strmap strmapi strncat strncmp strncpy strnequ strnew strnstr strrchr \
 		strrev strsplit strstr strsub strtrim \
-		arraynew arraynew4d arraylen \
+		arraynew arraynew4d arraylen wtoi\
 		lstadd lstdel lstdelone lstiter lstmap lstnew \
 		isalnum isalpha isascii isdigit islower isprint isupper iswhitespace \
 		swap tolower toupper strtolower strtoupper itoa itoa_base atoi \
 		setnull setdoubletozero setunsignedinttozero setunsignedshorttozero \
 		abs sign rgb_to_hex shade_colour percentof
-
-#temp removed "wtoi" <-- put in ~/Desktop/kift
 
 FUNCS = $(addprefix $(FT_), $(FILES))
 
