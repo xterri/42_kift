@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 10:46:43 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/17 19:31:40 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/18 11:08:56 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void				ft_swap(int *a, int *b);
 char				**ft_arraynew(int width, int height);
 char				***ft_arraynew4d(int width, int height, int depth);
 int					ft_arraylen(const char **array);
-long long			ft_wtoi(char *num);
+//long long			ft_wtoi(char *num);
 void				ft_setdoubletozero(double *a, double *b, double *c,
 					double *d);
 void				ft_setunsignedinttozero(unsigned int *a, unsigned int *b,
