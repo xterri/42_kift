@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 16:22:55 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/17 14:12:02 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/18 09:38:18 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ char			*check(const char *key);
 int				load(const char *file);
 void			unload(void);
 void			history_log(char *str, void *socket);
+void			send_history(int fd);
 
 #endif

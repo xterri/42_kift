@@ -6,7 +6,7 @@
 #    By: bpierce <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/25 10:27:14 by bpierce           #+#    #+#              #
-#*   Updated: 2017/09/17 14:10:39 by thuynh           ###   ########.fr       *#
+#*   Updated: 2017/09/18 09:37:53 by thuynh           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ FILES3 = alarm_response count_negations email_response find_time_phrase \
 		 where_response \
 
 # terri's database for loading and checking; for logs?
-FILES4 = load check unload hash_function history_log
+FILES4 = load check unload hash_function history_log send_history
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FILES))
