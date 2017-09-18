@@ -6,7 +6,11 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 10:46:43 by bpierce           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2017/09/18 11:51:03 by thuynh           ###   ########.fr       */
+=======
+/*   Updated: 2017/09/18 11:44:21 by bpierce          ###   ########.fr       */
+>>>>>>> a11f3127185c812357e142a5fe3f66340b5b9b53
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +103,7 @@ char				*ft_strofchars(const char c, size_t num);
 char				*ft_strtrim(char const *s);
 char				*ft_strctrim(char const *s, const char c);
 char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplits(char const *s, char *chrctrs);
 char				*ft_strfindnreplace(char *s, char f, char r, int n);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int value, int base);
@@ -123,6 +128,8 @@ void				ft_swap(int *a, int *b);
 char				**ft_arraynew(int width, int height);
 char				***ft_arraynew4d(int width, int height, int depth);
 int					ft_arraylen(const char **array);
+void				ft_arraydel(char **array);
+char				*ft_strremove(const char *string, char *remove_chars);
 long long			ft_wtoi(char *num);
 void				ft_setdoubletozero(double *a, double *b, double *c,
 					double *d);

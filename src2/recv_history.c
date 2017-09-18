@@ -37,12 +37,8 @@ void	recv_history(int cli_fd)
 			exit(0);
 		}
 		if (ft_strequ(buf, "end"))
-		{
-			free(buf);
 			break ;
-		}
 		write(log_fd, buf, ft_strlen(buf));
-		free(buf);
 	}
 	close(log_fd);
 }
