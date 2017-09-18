@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:52 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/16 17:56:56 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/18 11:12:24 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ typedef struct			s_socket
 	unsigned int		clilen;
 }						t_socket;
 
+void	recv_history(void);
 #endif
