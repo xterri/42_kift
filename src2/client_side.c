@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:20:16 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/18 09:58:28 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/18 11:07:35 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ void	*receive_server_message(void *socket)
 		ft_putendl(buf);
 		snprintf(buf2, sizeof(buf2), "spd-say \"%s\"", buf);
 		system(buf2);
+		if (ft_strequ(buf, "ok let me show you your history"))
+		{
+			recv_history();
+			// Open a new terminal window in ubuntu and displays the log
+			// system("xterm -hold -e cat log.txt");
+		}
 	}
 	free(buf);
 	return ((void *)buf);
