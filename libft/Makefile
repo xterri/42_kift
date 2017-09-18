@@ -21,15 +21,13 @@ FILES = bzero memalloc memccpy memchr memcmp memcpy memdel memmove memset \
 		strfindnreplace strfsub strfremalloc strfresize striter \
 		striteri strjoin strfjoin strffjoin strlcat strlen \
 		strmap strmapi strncat strncmp strncpy strnequ strnew strnstr strrchr \
-		strrev strsplit strstr strsub strtrim \
-		arraynew arraynew4d arraylen \
+		strrev strsplit strsplits strstr strsub strtrim strremove \
+		arraynew arraynew4d arraylen arraydel\
 		lstadd lstdel lstdelone lstiter lstmap lstnew \
 		isalnum isalpha isascii isdigit islower isprint isupper iswhitespace \
 		swap tolower toupper strtolower strtoupper itoa itoa_base atoi \
 		setnull setdoubletozero setunsignedinttozero setunsignedshorttozero \
 		abs sign rgb_to_hex shade_colour percentof
-
-#temp removed "wtoi"
 
 FUNCS = $(addprefix $(FT_), $(FILES))
 
