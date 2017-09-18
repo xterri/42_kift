@@ -22,7 +22,7 @@ FILES = bzero memalloc memccpy memchr memcmp memcpy memdel memmove memset \
 		striteri strjoin strfjoin strffjoin strlcat strlen \
 		strmap strmapi strncat strncmp strncpy strnequ strnew strnstr strrchr \
 		strrev strsplit strstr strsub strtrim \
-		arraynew arraynew4d arraylen \
+		arraynew arraynew4d arraylen wtoi \
 		lstadd lstdel lstdelone lstiter lstmap lstnew \
 		isalnum isalpha isascii isdigit islower isprint isupper iswhitespace \
 		swap tolower toupper strtolower strtoupper itoa itoa_base atoi \
