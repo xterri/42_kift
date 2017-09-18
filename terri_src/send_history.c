@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 19:43:31 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/17 20:11:09 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/18 09:34:10 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	send_history(int fd)
 	{
 		if (ret == 0)
 		{
-			write(fd, "", 0);
+			write(fd, "end", 3);
 			break ;
 		}
 		write(fd, line, ft_strlen(line));
