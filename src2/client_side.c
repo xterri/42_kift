@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:20:16 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/18 11:07:35 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/18 11:43:13 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	*receive_server_message(void *socket)
 		system(buf2);
 		if (ft_strequ(buf, "ok let me show you your history"))
 		{
-			recv_history();
+			recv_history(s->client_socket_fd);
 			// Open a new terminal window in ubuntu and displays the log
-			// system("xterm -hold -e cat log.txt");
+			system("xterm -hold -e cat log.txt");
 		}
 	}
 	free(buf);

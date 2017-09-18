@@ -6,7 +6,7 @@
 #    By: bpierce <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/25 10:27:14 by bpierce           #+#    #+#              #
-#*   Updated: 2017/09/18 11:09:46 by thuynh           ###   ########.fr       *#
+#*   Updated: 2017/09/18 11:24:20 by thuynh           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ FILES = bzero memalloc memccpy memchr memcmp memcpy memdel memmove memset \
 		setnull setdoubletozero setunsignedinttozero setunsignedshorttozero \
 		abs sign rgb_to_hex shade_colour percentof
 
-#temp removed "wtoi"
+#temp removed "wtoi" <-- put in ~/Desktop/kift
 
 FUNCS = $(addprefix $(FT_), $(FILES))
 

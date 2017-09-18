@@ -6,11 +6,13 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 10:14:51 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/18 11:07:20 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/18 11:23:24 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	recv_history(void)
+#include "server.h"
+
+void	recv_history(int cli_fd)
 {
 	int		ret;
 	int		log_fd;
@@ -27,7 +29,7 @@ void	recv_history(void)
 		ft_putnull("Failed to malloc.");
 		return ;
 	}
-	while (ret = recv(s->client_socket_fd, buf, 255, 0))
+	while ((ret = recv(cli_fd, buf, 255, 0)))
 	{
 		if (ret < 0)
 		{
