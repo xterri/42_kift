@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	recv_history(void)
+#include "server.h"
+
+void	recv_history(int cli_fd)
 {
 	int		ret;
 	int		log_fd;
@@ -27,7 +29,7 @@ void	recv_history(void)
 		ft_putnull("Failed to malloc.");
 		return ;
 	}
-	while (ret = recv(s->client_socket_fd, buf, 255, 0))
+	while ((ret = recv(cli_fd, buf, 255, 0)))
 	{
 		if (ret < 0)
 		{
@@ -35,12 +37,8 @@ void	recv_history(void)
 			exit(0);
 		}
 		if (ft_strequ(buf, "end"))
-		{
-			free(buf);
 			break ;
-		}
 		write(log_fd, buf, ft_strlen(buf));
-		free(buf);
 	}
 	close(log_fd);
 }
