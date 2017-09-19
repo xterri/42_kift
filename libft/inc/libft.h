@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 10:46:43 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/18 22:51:29 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/19 13:10:44 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,5 +141,6 @@ int					ft_shade_colour(int colour, double percent,
 double				ft_percentof(double a, double percent);
 int					ft_abs(int n);
 int					ft_sign(int n);
+long long			ft_powerof(long long num, int power);
 
 #endif
