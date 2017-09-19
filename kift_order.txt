@@ -1,0 +1,18 @@
+1. Start server with port number
+	a. server is set up and listens for client connection
+2. Client connects by server's ip address and port number
+--
+	3. Client sends a message
+		a. To initialize / have server respond, client must says "hey baka" first
+	4. Server hears "hey baka" and is ready to receive client's next message/command
+		a. Have server respond to indicate that it acknowledges the client and is
+			listening for their next command/request?
+	5. Client sends command
+	6. Server receives command and returns a response.
+--
+7. repeat steps 3 - 6 until client says "good bye baka" (all together?)
+8. server acknowledge's client wish to end contact, responds
+9. client receives the message and "terminates" connection
+
+
+- server should still be "on" and ready to accept requests when client disconnects
