@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/19 14:09:55 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/19 16:22:29 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,20 @@ void 	*receive_client_message(void *socket)
 		}
 		if (!(ft_strequ(buf, "\n")))
 		{
-			buf[ft_strlen(buf) - 1] = '\0';
-			history_log(buf, s);
-			response = respond(buf);
-			ft_strequ(response, "%?") ? response = s->client_ip : 0;
-			dup2(s->fds[1], 1);
-			ft_putendl_fd(buf, s->stdout_save);
-			write(s->fds[1], response, ft_strlen(response));
+			if (ft_strstr(buf, "hey baka"))
+			{
+				if ((s->n = send(s->client_socket_fd, "Hello", 5, 0)) < 0)
+					ErrorMessage("Error writing to client socket fd");
+				if ((s->n = recv(s->client_socket_fd, buf, 255, 0)) < 0)
+					ErrorMessage("Error reading socket into buffer");
+				buf[ft_strlen(buf) - 1] = '\0';
+				history_log(buf, s);
+				response = respond(buf);
+				ft_strequ(response, "%?") ? response = s->client_ip : 0;
+				dup2(s->fds[1], 1);
+				ft_putendl_fd(buf, s->stdout_save);
+				write(s->fds[1], response, ft_strlen(response));
+			}
 		}
 		if (ft_strequ(response, "ok let me show you your history"))
 			send_history(s->fds[1]);
@@ -96,9 +103,6 @@ int		main(int argc, char **argv)
 		fprintf(stderr, "Error missing port\n");
 	else
 	{
-		if ((load("kift_index.csv")) < 0)
-			return (fprintf(stderr, "Error loading file"));
-		s.tmp_fd = 8;
 		bzero(&s, sizeof(s));
 		s.port = ft_atoi(argv[1]);
 		if ((s.server_socket_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0)

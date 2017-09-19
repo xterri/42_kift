@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 18:55:29 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/19 14:30:25 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/19 15:23:34 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	get_topic_pt2(char *str)
 		return (WHO);
 	if (strstr(str, " where ") && strstr(str, " connect"))
 		return (WHERE);
-	if (strstr(str, " bye "))
+	if (strstr(str, " good bye ") && strstr(str, " baka "))
 		return (BYE);
 	return (0);
 }

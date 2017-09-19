@@ -6,7 +6,7 @@
 #    By: bpierce <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/25 10:27:14 by bpierce           #+#    #+#              #
-#*   Updated: 2017/09/18 11:11:29 by thuynh           ###   ########.fr       *#
+#*   Updated: 2017/09/19 15:02:28 by thuynh           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ FILES3 = alarm_response count_negations email_response find_time_phrase \
 		 get_first_num get_topic history_response lights_response \
 		 music_response respond strjoin traffic_response weather_at \
 		 weather_response web_response text_response who_response \
-		 where_response \
+		 where_response bye_response \
 
 # terri's database for loading and checking; for logs?
 FILES4 = load check unload hash_function \
