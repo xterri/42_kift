@@ -40,7 +40,8 @@ void	*receive_server_message(void *socket)
 		{
 			recv_history(s->client_socket_fd);
 			// Open a new terminal window in ubuntu and displays the log
-			system("xterm -hold -e cat log.txt");
+			system("xterm -hold -e cat log.txt &");
+		//	system("rm log.txt");
 		}
 	}
 	free(buf);

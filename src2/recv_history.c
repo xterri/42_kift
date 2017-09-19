@@ -18,8 +18,7 @@ void	recv_history(int cli_fd)
 	int		log_fd;
 	char	*buf;
 
-	if (!(log_fd = open("log.txt", O_WRONLY | O_CREAT | O_TRUNC,
-					S_IRUSR | S_IWUSR)))
+	if (!(log_fd = open("log.txt", O_WRONLY)))// | O_CREAT | O_TRUNC,	S_IRUSR | S_IWUSR)))
 	{
 		perror("File cannot be opened");
 		exit(0);
@@ -29,16 +28,22 @@ void	recv_history(int cli_fd)
 		ft_putnull("Failed to malloc.");
 		return ;
 	}
-	while ((ret = recv(cli_fd, buf, 255, 0)))
+	ft_bzero(buf, 256);
+	while ((ret = recv(cli_fd, buf, 255, 0)) != -1)
 	{
-		if (ret < 0)
+		if (ft_strstr(buf, "-----------\n"))
 		{
-			perror("Error reading socket");
-			exit(0);
+			close(log_fd);
+			return ;
 		}
-		if (ft_strequ(buf, "end"))
-			break ;
 		write(log_fd, buf, ft_strlen(buf));
+		ft_bzero(buf, 256);
+	}
+	if (ret < 0)
+	{
+		perror("Error reading socket");
+		close(log_fd);
+		exit(0);
 	}
 	close(log_fd);
 }
