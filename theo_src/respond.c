@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 21:49:54 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/15 20:07:41 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/19 13:01:06 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char	*respond(char *str)
 	char *reply;
 	char *temp;
 
+	ft_strwtoi(str);
 	temp = strjoin(str, " ");
 	str = strjoin(" ", temp);
 	free(temp);
