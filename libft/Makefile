@@ -27,7 +27,7 @@ FILES = bzero memalloc memccpy memchr memcmp memcpy memdel memmove memset \
 		isalnum isalpha isascii isdigit islower isprint isupper iswhitespace \
 		swap tolower toupper strtolower strtoupper itoa itoa_base atoi \
 		setnull setdoubletozero setunsignedinttozero setunsignedshorttozero \
-		abs sign rgb_to_hex shade_colour percentof
+		abs sign rgb_to_hex shade_colour percentof powerof
 
 FUNCS = $(addprefix $(FT_), $(FILES))
 
