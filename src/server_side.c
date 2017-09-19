@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/18 11:07:37 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/18 15:59:47 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void 	*receive_client_message(void *socket)
 	t_socket	*s;
 	
 	s = (t_socket *)socket;
+	response = NULL;
 	if (!(buf = ft_strnew(255)))
 		return (ft_putnull("Failed to malloc buf for receiving client messages"));
 	while (1)
@@ -46,8 +47,13 @@ void 	*receive_client_message(void *socket)
 			dup2(s->fds[1], 1);
 			ft_putendl_fd(buf, s->stdout_save);
 			write(s->fds[1], response, ft_strlen(response));
-			if (ft_strequ(response, "ok let me show you your history"))
-				send_history(s->fds[1]);
+		}
+		if (response && ft_strequ(response, "ok let me show you your history"))
+			send_history(s->fds[1]);
+		if (response)
+		{
+			free(response);
+			response = NULL;
 		}
 	}
 	close(s->fds[1]);
