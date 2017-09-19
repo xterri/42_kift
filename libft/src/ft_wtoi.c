@@ -6,143 +6,121 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 21:04:27 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/16 21:17:50 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/18 21:49:41 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "wtoi.h"
 
 /*
 ** gcc src/ft_wtoi.c -I inc/ libft.a
 */
 
-static long long	get_rest(char **num)
+static long long	get_rest(t_wtoi *w)
 {
-	char		*wordzies[4];
-	long long	numbers[4];
 	int			i;
 
-	wordzies[0] = "thousand";
-	wordzies[1] = "million";
-	wordzies[2] = "billion";
-	wordzies[3] = "trillion";
-	numbers[0] = 1000;
-	numbers[1] = 1000000;
-	numbers[2] = 1000000000;
-	numbers[3] = 1000000000000;
 	i = -1;
 	while (++i < 4)
 	{
-		if (!(ft_strncmp(*num, wordzies[i], ft_strlen(wordzies[i]))))
+		if (ft_strnequ(w->s, w->bw[i], ft_strlen(w->bw[i])))
 		{
-			*num += ft_strlen(wordzies[i]);
-			return (numbers[i]);
+			w->s += ft_strlen(w->bw[i]);
+			return (w->bn[i]);
 		}
 	}
-	return (-1);
+	return (1);
 }
 
-static void			instantiate_stuff(char ***wordzies, int *numbers)
+static long long	get_initial(t_wtoi *w, int i, int total)
 {
-	int		i;
-
-	*wordzies = ft_strsplits("ten eleven twelve thirteen fourteen fifteen \
-			sixteen seventeen eighteen nineteen twenty thirty forty fifty \
-			sixty seventy eighty ninety zero one two three four five six \
-			seven eight nine", " \t");
-	i = -1;
-	while (++i < 29)
-	{
-		if (i < 11)
-			numbers[i] = i + 10;
-		else if (i < 18)
-			numbers[i] = (i - 8) * 10;
-		else if (i < 28)
-			numbers[i] = (i - 18);
-		else if (i == 28)
-			numbers[i] = -1;
-	}
-}
-
-static long long	get_initial(char **num, int i, int extra)
-{
-	char		**wordzies;
-	int			numbers[29];
-
-	instantiate_stuff(&wordzies, numbers);
 	while (++i < 28)
 	{
-		if (!(ft_strncmp(*num, wordzies[i], ft_strlen(wordzies[i]))))
+		if (ft_strnequ(w->s, w->w[i], ft_strlen(w->w[i])))
 		{
-			*num += ft_strlen(wordzies[i]);
+			w->s += ft_strlen(w->w[i]);
+			total += w->n[i];
 			if (i > 9 && i < 18)
-				extra = get_initial(num, -1, 0);
-			else if (i > 18 || i < 9)
+				total = get_initial(w, -1, total);
+			if (i != 18)
 			{
-				if (!(ft_strncmp(*num, "hundred", 7)))
+				if (ft_strnequ(w->s, "hundred", 7))
 				{
-					*num += (!(ft_strncmp(*num, "hundredand", 10))) ? 10 : 7;
-					extra = get_initial(num, -1, 0);
-					numbers[i] = (numbers[i] * 100);
+					w->s += (ft_strnequ(w->s, "hundredand", 10)) ? 10 : 7;
+					total = (total * 100) + get_initial(w, -1, 0);
 				}
 			}
 			break ;
 		}
 	}
-	ft_arraydel(wordzies);
-	return (numbers[i] + (extra != -1 ? extra : 0));
+	return ((long long)total);
 }
 
-static void			move_to_next_legitimate_word(char **s)
+static void			move_to_next_legitimate_word(t_wtoi *w)
 {
-	char	**wordzies;
 	int		i;
 
-	wordzies = ft_strsplits("ten eleven twelve thirteen fourteen fifteen \
-			sixteen seventeen eighteen nineteen twenty thirty forty fifty \
-			sixty seventy eighty ninety zero one two three four five six \
-			seven eight nine", " \t");
-	while (**s)
+	while (*w->s)
 	{
 		i = -1;
 		while (++i < 28)
 		{
-			if (!(ft_strncmp(*s, wordzies[i], ft_strlen(wordzies[i]))))
-			{
-				ft_arraydel(wordzies);
+			if (ft_strnequ(w->s, w->w[i], ft_strlen(w->w[i])))
 				return ;
-			}
 		}
-		*s += 1;
+		w->s += 1;
 	}
-	ft_arraydel(wordzies);
 }
+
+static void			instantiate_stuff(t_wtoi *w, char *num_string)
+{
+	int		i;
+
+	w->w = ft_strsplits(NUMBER_WORDS, " ");
+	w->bw = ft_strsplits("thousand million billion trillion", " ");
+	i = -1;
+	while (++i < 29)
+	{
+		if (i < 11)
+			w->n[i] = i + 10;
+		else if (i < 18)
+			w->n[i] = (i - 8) * 10;
+		else if (i < 28)
+			w->n[i] = (i - 18);
+		else if (i == 28)
+			w->n[i] = -1;
+	}
+	i = -1;
+	while (++i < 4)
+		w->bn[i] = ft_powerof(1000, (long long)i + 1);
+	w->section = (long long *)ft_memalloc(sizeof(long long) * 12);
+	w->s = ft_strremove(num_string, " -");
+	w->s_save = w->s;
+}
+
 
 long long			ft_wtoi(char *num)
 {
-	char		*string;
-	long long	final;
-	long long	*section;
-	long long	tmp;
+	t_wtoi		w;
 	int			i;
 
+	instantiate_stuff(&w, num);
 	i = -1;
-	section = (long long *)ft_memalloc(sizeof(long long) * 13);
-	string = ft_strremove(num, " -");
-	while (++i < 13 && *string)
+	while (++i < 12 && *w.s)
 	{
-		final = 0;
-		if ((tmp = (long long)get_initial(&string, -1, 0)) != -1)
-			final += tmp;
-		if ((tmp = get_rest(&string)) != -1)
-			final *= tmp;
-		section[i] = final;
-		move_to_next_legitimate_word(&string);
+		w.final = 0;
+		w.final += get_initial(&w, -1, 0);
+		w.final *= get_rest(&w);
+		w.section[i] = w.final;
+		move_to_next_legitimate_word(&w);
 	}
-	final = section[0] + section[1] + section[2] + section[3] +
-			section[4] + section[5] + section[6] + section[7] +
-			section[8] + section[9] + section[10] + section[11] +
-			section[12];
-	free(section);
-	return (final);
+	w.final = w.section[0] + w.section[1] + w.section[2] + w.section[3] +
+			w.section[4] + w.section[5] + w.section[6] + w.section[7] +
+			w.section[8] + w.section[9] + w.section[10] + w.section[11];
+	free(w.section);
+	free(w.s_save);
+	ft_arraydel(w.w);
+	ft_arraydel(w.bw);
+	return (w.final);
 }
