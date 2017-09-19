@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 21:49:54 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/19 13:01:06 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/19 14:37:27 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static char	*response_pt2(int topic, char *str, int negation)
 		return (who_response(str, negation));
 	if (topic == WHERE)
 		return (where_response(str, negation));
+	if (topic == BYE)
+		return (bye_response(str, negation));
 	if (topic == TEXT)
 		return (text_response(str, negation));
 	return (unsure_response());

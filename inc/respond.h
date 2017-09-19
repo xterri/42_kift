@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 19:18:54 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/07 19:18:54 by twalton          ###   ########.fr       */
+/*   Updated: 2017/09/19 14:43:24 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 #define TEXT 9
 #define WHO 10
 #define WHERE 11
+#define BYE 12
 
 char	*respond(char *str);
 int	get_topic(char *str);
@@ -55,6 +56,7 @@ char	*history_response(char *str, int negation);
 char	*text_response(char *str, int negation);
 char	*who_response(char *str, int negation);
 char	*where_response(char *str, int negation);
+char	*bye_response(char *str, int negation);
 
 char	*strjoin(char *str1, char *str2);
 
