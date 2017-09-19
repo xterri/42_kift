@@ -10,7 +10,7 @@ check weather
 check temperature
 check traffic
 who is connected
-where is connected
+where is user connected
 play music
 search the web for 
 check history
@@ -53,7 +53,6 @@ no
 not
 none
 never
-off
 hours
 seconds
 minutes
@@ -61,4 +60,5 @@ days
 weeks
 months
 years
-
+good bye
+hey baka
