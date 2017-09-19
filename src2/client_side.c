@@ -95,7 +95,7 @@ int		main(int argc, char **argv)
 	if (pid == 0)
 	{
 		dup2(s.fds[1], 1);
-		system("pocketsphinx_continuous -inmic yes -lm lm_dict/9214.lm -dict lm_dict/9214.dic -logfn /dev/null");
+		system("pocketsphinx_continuous -inmic yes -lm lm_dict/8711.lm -dict lm_dict/8711.dic -logfn /dev/null");
 		close(s.fds[1]);
 		dup2(s.stdout_save, 1);
 	}
