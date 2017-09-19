@@ -10,7 +10,7 @@
 <s> CHECK TEMPERATURE </s>
 <s> CHECK TRAFFIC </s>
 <s> WHO IS CONNECTED </s>
-<s> WHERE IS CONNECTED </s>
+<s> WHERE IS USER CONNECTED </s>
 <s> PLAY MUSIC </s>
 <s> SEARCH THE WEB FOR </s>
 <s> CHECK HISTORY </s>
@@ -53,7 +53,6 @@
 <s> NOT </s>
 <s> NONE </s>
 <s> NEVER </s>
-<s> OFF </s>
 <s> HOURS </s>
 <s> SECONDS </s>
 <s> MINUTES </s>
@@ -61,3 +60,5 @@
 <s> WEEKS </s>
 <s> MONTHS </s>
 <s> YEARS </s>
+<s> GOOD BYE </s>
+<s> HEY BAKA </s>
