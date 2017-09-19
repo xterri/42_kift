@@ -39,9 +39,12 @@ void	*receive_server_message(void *socket)
 		if (ft_strequ(buf, "ok let me show you your history"))
 		{
 			recv_history(s->client_socket_fd);
-			// Open a new terminal window in ubuntu and displays the log
 			system("xterm -hold -e cat log.txt &");
-		//	system("rm log.txt");
+		}
+		if (ft_strequ(buf, "bye bye now"))
+		{
+			system("killall pocketsphinx_continuous");
+			break ;	
 		}
 	}
 	free(buf);
@@ -120,7 +123,6 @@ int		main(int argc, char **argv)
 		pthread_create(&t_id[0], NULL, receive_server_message, &s);
 		pthread_create(&t_id[1], NULL, send_message_to_server, &s2);
 		pthread_join(t_id[0], NULL);
-		pthread_join(t_id[1], NULL);
 		close(s.server_socket_fd);
 		close(s.client_socket_fd);
 		dup2(s.stdin_save, 0);
