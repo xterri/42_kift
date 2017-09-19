@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/18 15:59:47 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/19 14:09:55 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void 	*receive_client_message(void *socket)
 			ft_putendl_fd(buf, s->stdout_save);
 			write(s->fds[1], response, ft_strlen(response));
 		}
-		if (response && ft_strequ(response, "ok let me show you your history"))
+		if (ft_strequ(response, "ok let me show you your history"))
 			send_history(s->fds[1]);
-		if (response)
+		if (response && !(ft_strequ(response, s->client_ip)))
 		{
 			free(response);
 			response = NULL;
