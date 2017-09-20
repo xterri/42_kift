@@ -6,57 +6,15 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/19 18:12:35 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/19 19:51:20 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "server.h"
-
-void	ErrorMessage(const char *msg)
-{
-	perror(msg);
-	exit(0);
-}
-
-void 	*receive_client_message(void *socket)
-{
-	char		*buf;
-	char		*response;
-	t_socket	*s;
-	
-	s = (t_socket *)socket;
-	response = NULL;
-	if (!(buf = ft_strnew(255)))
-		return (ft_putnull("Failed to malloc buf for receiving client messages"));
-	while (1)
-	{
-		ft_bzero(buf, 256);
-		if ((s->n = recv(s->client_socket_fd, buf, 255, 0)) < 0)
-			ErrorMessage("Error reading socket into buffer");
-		else if (s->n < 0)
-		{
-			ft_putstr("connection closed\n");
-			break ;
-		}
-		if (!(ft_strequ(buf, "\n")))
-		{
-			//if (ft_strstr(buf, "hey baka"))
-			//{
-				/*
-				if ((s->n = send(s->client_socket_fd, "Hello", 5, 0)) < 0)
-					ErrorMessage("Error writing to client socket fd");
-				ft_bzero(buf, 256);
-				if ((s->n = recv(s->client_socket_fd, buf, 255, 0)) < 0)
-					ErrorMessage("Error reading socket into buffer");
-				*/
-				buf[ft_strlen(buf) - 1] = '\0';
-				history_log(buf, s);
-				response = respond(buf);
-				ft_strequ(response, "%?") ? response = s->client_ip : 0;
+p : 0;
 				dup2(s->fds[1], 1);
 				ft_putendl_fd(buf, s->stdout_save);
 				write(s->fds[1], response, ft_strlen(response));
-			//}
+			}
 		}
 		if (ft_strequ(response, "ok let me show you your history"))
 			send_history(s->fds[1]);
