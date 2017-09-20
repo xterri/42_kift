@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:36:15 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/20 12:28:04 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/20 12:42:15 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <mlx.h>
 # include <pthread.h>
 
-# define WIN_W 420
-# define WIN_H 585
+# define WIN_W 1600
+# define WIN_H 1200
 
 typedef struct			s_image
 {
