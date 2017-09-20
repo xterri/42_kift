@@ -6,18 +6,41 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:41:01 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/19 21:34:15 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/20 12:29:32 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "interface.h"
 
+int				exit_window(t_interface *i)
+{
+	(void)i;
+	exit(0);
+	return (1);
+}
+
+int				key_press(int keycode, t_interface *i)
+{
+	(void)i;
+	if (keycode == 53)
+		exit(0);
+	return (1);
+}
+
+int				mouse_press(int button, int x, int y, t_interface *i)
+{
+	if (button == 1)
+		mlx_string_put(i->mlx, i->win, x, y, 0x55AAFF, "testing");
+	return (1);
+}
+
 static void		initialize_hooks(t_interface *i)
 {
 	mlx_do_key_autorepeatoff(i->mlx);
 	mlx_hook(i->win, 4, 0, mouse_press, i);
+	mlx_hook(i->win, 2, 0, key_press, i);
 	//mlx_hook(i->win, 12, 0, expose_i_guess, i);
-	//mlx_hook(i->win, 17, 0, exit_window, i);
+	mlx_hook(i->win, 17, 0, exit_window, i);
 	//mlx_loop_hook(i->mlx, forever_loop, i);
 }
 
