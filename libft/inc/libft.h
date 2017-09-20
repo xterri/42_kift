@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 10:46:43 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/19 13:10:44 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/20 10:04:01 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "wtoi.h"
-
-# define BUFF_SIZE 4096
 
 typedef	struct		s_list
 {

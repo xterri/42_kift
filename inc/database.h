@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 16:22:55 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/18 09:38:18 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/20 10:07:23 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 
 # define HASH_SIZE 65535
 # define LENGTH 45
+# define BUFF_SIZE 4096
 
 typedef struct		s_node
 {
@@ -57,6 +58,6 @@ int				load(const char *file);
 void			unload(void);
 void			history_log(char *str, void *socket);
 void			send_history(int fd);
-int		get_next_line(const int fd, char **line);
+int				get_next_line(const int fd, char **line);
 
 #endif
