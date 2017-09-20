@@ -110,7 +110,7 @@ int		main(int argc, char **argv)
 		if (!(server = gethostbyname(argv[1])))
 			return (fprintf(stderr, "Host doesn't exist\n"));
 		ft_bzero(&serv_addr, sizeof(serv_addr));
-		serv_addr.sin_family = PF_INET;
+		serv_addr.sin_family = AF_INET;
 		serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 		bcopy((char *)server->h_addr, (char *)&serv_addr.sin_addr.s_addr, server->h_length);
 		serv_addr.sin_port = htons(s.port);

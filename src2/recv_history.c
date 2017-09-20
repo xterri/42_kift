@@ -18,7 +18,8 @@ void	recv_history(int cli_fd)
 	int		log_fd;
 	char	*buf;
 
-	if (!(log_fd = open("log.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR)))
+	if (!(log_fd = open("log.txt", O_WRONLY | O_CREAT | O_TRUNC, 
+			S_IRUSR | S_IWUSR)))
 	{
 		perror("File cannot be opened");
 		exit(0);
