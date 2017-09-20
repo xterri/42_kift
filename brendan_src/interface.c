@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:33:41 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/19 19:59:14 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/19 20:37:10 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		main(int argc, char **argv)
 	if (!(i = initialize_i(mlx)))
 		return (ft_puterror("Failed to initialize interface struct", 0));
 	mlx_loop(mlx);
-	dumb = argv[0];
+	dumb = ft_strdup(argv[0]);
+	free(dumb);
 	return (1);
 }
