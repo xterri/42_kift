@@ -23,11 +23,14 @@ FILES3 = alarm_response count_negations email_response find_time_phrase \
 		 get_first_num get_topic history_response lights_response \
 		 music_response respond strjoin traffic_response weather_at \
 		 weather_response web_response text_response who_response \
-		 where_response bye_response \
+		 where_response bye_response
 
 # terri's database for loading and checking; for logs?
 FILES4 = load check unload hash_function \
-		 history_log send_history \
+		 history_log send_history
+
+# brendan's interface for testing
+FILES5 = interface interface_images interface_initialize
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FILES))
@@ -45,6 +48,10 @@ TE_LOC = terri_src/
 TE_NAM = $(addsuffix .c, $(FILES4))
 TE_SRC = $(addprefix $(TE_LOC), $(TE_NAM))
 
+BR_LOC = brendan_src/
+BR_NAM = $(addsuffix .c, $(FILES5))
+BR_SRC = $(addprefix $(BR_LOC), $(BR_NAM))
+
 O_LOC = obj/
 O_NAM = $(addsuffix .o, $(FILES))
 O_SRC = $(addprefix $(O_LOC), $(O_NAM))
@@ -61,14 +68,23 @@ O_LOC4 = terri_obj/
 O_NAM4 = $(addsuffix .o, $(FILES4))
 O_SRC4 = $(addprefix $(O_LOC4), $(O_NAM4))
 
+O_LOC5 = brendan_obj/
+O_NAM5 = $(addsuffix .o, $(FILES5))
+O_SRC5 = $(addprefix $(O_LOC5), $(O_NAM5))
+
 LIB_LOC = libft/
 LIB_NAM = libft.a
 LIB_SRC = $(addprefix $(LIB_LOC), $(LIB_NAM))
 
-H_LOCS = -I inc -I libft/inc
+H_LOCS = -I inc -I libft/inc -I minilibx
+
 HEADERS = inc/server.h inc/database.h inc/respond.h libft/inc/libft.h
 
 C_FLAGS = -Wall -Wextra -Werror
+
+MLBX = minilibx/libmlx.a
+
+MLBX_FLAGS = -L minilibx -lmlx -framework OpenGL -framework Appkit
 
 TEST_MAIN = main_for_testing.c
 
@@ -97,6 +113,10 @@ $(NAME2): $(O_SRC2) $(LIB_SRC)
 	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
 	@gcc $(C_FLAGS) $^ -lpthread -o $@
 
+$(NAME5): $(O_SRC5) $(LIB_SRC) $(MLBX)
+	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
+	@gcc $(C_FLAGS) $(MLBX_FLAGS) $^ -lpthread -o $@
+
 $(O_LOC)%.o: $(C_LOC)%.c $(HEADERS)
 	@echo "$(GREY)Re-compiling src file... $(END_COLOUR)$(YELLOW)$<$(END_COLOUR)"
 	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
@@ -113,11 +133,21 @@ $(O_LOC4)%.o: $(TE_LOC)%.c $(HEADERS)
 	@echo "$(GREY)Re-compiling src file... $(END_COLOUR)$(YELLOW)$<$(END_COLOUR)"
 	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
 
+$(O_LOC5)%.o: $(BR_LOC)%.c $(HEADERS)
+	@echo "$(GREY)Re-compiling src file... $(END_COLOUR)$(YELLOW)$<$(END_COLOUR)"
+	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
+
 $(LIB_SRC): force
 	@echo "$(YELLOW)----------- Checking Libft Library -----------$(END_COLOUR)"
 	@printf "$(YELLOW_LIGHT)$@ re-compile status: $(END_COLOUR)"
 	@make -C $(LIB_LOC)
 	@echo "$(YELLOW)----------- Library Check Complete -----------$(END_COLOUR)"
+
+$(MLBX): force
+	@echo "$(YELLOW)\n----------- Checking $@ Library -----------$(END_COLOUR)"
+	@printf "$(YELLOW_LIGHT)$@ re-compile status: $(END_COLOUR)"
+	@make -C minilibx
+	@echo "$(YELLOW)----------- $@ Check Complete -----------\n$(END_COLOUR)"
 
 force:
 	@true
@@ -128,6 +158,7 @@ clean:
 	@/bin/rm -rf $(O_SRC3)
 	@/bin/rm -rf $(O_SRC4)
 	@make clean -C $(LIB_LOC)
+	@make clean -C minilibx
 	@echo "$(GREEN)clean complete!$(END_COLOUR)"
 
 fclean: clean
