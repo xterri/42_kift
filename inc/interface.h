@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:36:15 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/19 19:23:20 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/19 20:16:34 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 # include "server.h"
 # include "libft.h"
+# include <mlx.h>
+# include <pthread.h>
 
-# define WIN_W 400
-# define WIN_H 800
+# define WIN_W 415
+# define WIN_H 585
 
 typedef struct			s_image
 {
@@ -29,14 +31,15 @@ typedef struct			s_image
 	int					h;
 }						t_image;
 
-typedef struct			t_interface
+typedef struct			s_interface
 {
 	void				*mlx;
 	void				*win;
 	t_image				*bg;
-}						s_interface;
+}						t_interface;
 
-s_interface				*initialize_i(void *mlx);
+t_interface				*initialize_i(void *mlx);
 t_image					*new_image(t_interface *i, int width, int height);
+t_image					*get_background(t_interface *i);
 
 #endif

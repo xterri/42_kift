@@ -30,6 +30,7 @@ FILES4 = load check unload hash_function \
 		 history_log send_history
 
 # brendan's interface for testing
+NAME5 = interface
 FILES5 = interface interface_images interface_initialize
 
 C_LOC = src/
@@ -103,7 +104,7 @@ MAGENTA_LIGHT = [95m
 BLINK = [5m
 END_COLOUR = \033[0m
 
-all: $(NAME) $(NAME2)
+all: $(NAME) $(NAME2) $(NAME5)
 
 $(NAME): $(O_SRC) $(O_SRC3) $(O_SRC4) $(LIB_SRC)
 	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
@@ -133,7 +134,7 @@ $(O_LOC4)%.o: $(TE_LOC)%.c $(HEADERS)
 	@echo "$(GREY)Re-compiling src file... $(END_COLOUR)$(YELLOW)$<$(END_COLOUR)"
 	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
 
-$(O_LOC5)%.o: $(BR_LOC)%.c $(HEADERS)
+$(O_LOC5)%.o: $(BR_LOC)%.c inc/interface.h
 	@echo "$(GREY)Re-compiling src file... $(END_COLOUR)$(YELLOW)$<$(END_COLOUR)"
 	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
 
@@ -157,6 +158,7 @@ clean:
 	@/bin/rm -rf $(O_SRC2)
 	@/bin/rm -rf $(O_SRC3)
 	@/bin/rm -rf $(O_SRC4)
+	@/bin/rm -rf $(O_SRC5)
 	@make clean -C $(LIB_LOC)
 	@make clean -C minilibx
 	@echo "$(GREEN)clean complete!$(END_COLOUR)"
@@ -164,6 +166,7 @@ clean:
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(NAME2)
+	@/bin/rm -f $(NAME5)
 	@make fclean -C $(LIB_LOC)
 	@echo "$(GREEN)fclean complete!$(END_COLOUR)"
 
