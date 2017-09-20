@@ -65,10 +65,14 @@ LIB_LOC = libft/
 LIB_NAM = libft.a
 LIB_SRC = $(addprefix $(LIB_LOC), $(LIB_NAM))
 
-H_LOCS = -I inc -I libft/inc
+H_LOCS = -I inc -I libft/inc -I minilibx
 HEADERS = inc/server.h inc/database.h inc/respond.h libft/inc/libft.h
 
 C_FLAGS = -Wall -Wextra -Werror
+
+MLBX = minilibx/libmlx.a
+
+MLBX_FLAGS = -L minilibx -lmlx -framework OpenGL -framework Appkit
 
 TEST_MAIN = main_for_testing.c
 
@@ -93,9 +97,9 @@ $(NAME): $(O_SRC) $(O_SRC3) $(O_SRC4) $(LIB_SRC)
 	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
 	@gcc $(C_FLAGS) $^ -lpthread -o $@
 
-$(NAME2): $(O_SRC2) $(LIB_SRC)
+$(NAME2): $(O_SRC2) $(LIB_SRC) $(MLBX)
 	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
-	@gcc $(C_FLAGS) $^ -lpthread -o $@
+	@gcc $(C_FLAGS) $(MLBX_FLAGS) $^ -lpthread -o $@
 
 $(O_LOC)%.o: $(C_LOC)%.c $(HEADERS)
 	@echo "$(GREY)Re-compiling src file... $(END_COLOUR)$(YELLOW)$<$(END_COLOUR)"
@@ -119,6 +123,12 @@ $(LIB_SRC): force
 	@make -C $(LIB_LOC)
 	@echo "$(YELLOW)----------- Library Check Complete -----------$(END_COLOUR)"
 
+$(MLBX): force
+	@echo "$(YELLOW)\n----------- Checking $@ Library -----------$(END_COLOUR)"
+	@printf "$(YELLOW_LIGHT)$@ re-compile status: $(END_COLOUR)"
+	@make -C minilibx
+	@echo "$(YELLOW)----------- $@ Check Complete -----------\n$(END_COLOUR)"
+
 force:
 	@true
 
@@ -128,6 +138,7 @@ clean:
 	@/bin/rm -rf $(O_SRC3)
 	@/bin/rm -rf $(O_SRC4)
 	@make clean -C $(LIB_LOC)
+	@make clean -C minilibx
 	@echo "$(GREEN)clean complete!$(END_COLOUR)"
 
 fclean: clean
