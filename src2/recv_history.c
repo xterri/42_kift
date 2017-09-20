@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 10:14:51 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/18 11:23:24 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/20 10:06:50 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	recv_history(int cli_fd)
 	int		log_fd;
 	char	*buf;
 
-	if (!(log_fd = open("log.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR)))
+	if (!(log_fd = open("log.txt", O_WRONLY | O_CREAT | O_TRUNC, 
+					S_IRUSR | S_IWUSR)))
 	{
 		perror("File cannot be opened");
 		exit(0);

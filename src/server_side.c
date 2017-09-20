@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/20 09:13:58 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/20 14:34:10 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ void	*receive_client_message(void *socket)
 		}
 		else if (ft_strstr(buf, "hey baka"))
 		{
-			if (ft_strstr(buf, "hey baka") && 
-						(s->n = send(s->client_socket_fd, "Hello", 5, 0)) < 0)
+			if ((s->n = send(s->client_socket_fd, "Hello", 5, 0)) < 0)
 				ErrorMessage("Error writing to client socket fd");
 			ft_bzero(buf, 256);
 			while ((s->n = recv(s->client_socket_fd, buf, 255, 0)))
@@ -128,7 +127,10 @@ int		main(int argc, char **argv)
 		if (bind(s.server_socket_fd, (struct sockaddr *)&serv_addr, sizeof(struct sockaddr)) < 0)
 			ErrorMessage("Error in connection dude");
 		ft_putstr("Server Address: ");
-		printf("%s:%hd\n", inet_ntoa(serv_addr.sin_addr), s.port);
+		ft_putstr(inet_ntoa(serv_addr.sin_addr));
+		ft_putstr(": ");
+		ft_putnbr(s.port);
+		ft_putstr("\n");
 		if (listen(s.server_socket_fd, 5) < 0)
 			ErrorMessage("Not listening. Talk to the Hand.");
 		s.n = 256;
