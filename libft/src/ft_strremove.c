@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/16 15:38:35 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/16 16:12:20 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/19 19:03:29 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strremove(const char *string, char *remove_chars)
 	newstring = ft_strnew(0);
 	i = -1;
 	while (tmp[++i][0])
-		newstring = ft_strffjoin(&newstring, &tmp[i]);
-	ft_strdel(&tmp[i]);
+		newstring = ft_strfjoin(&newstring, tmp[i]);
+	ft_arraydel(tmp);
 	return (newstring);
 }
