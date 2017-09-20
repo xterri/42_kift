@@ -27,7 +27,7 @@ FILES3 = alarm_response count_negations email_response find_time_phrase \
 
 # terri's database for loading and checking; for logs?
 FILES4 = load check unload hash_function \
-		 history_log send_history
+		 history_log send_history get_next_line
 
 # brendan's interface for testing
 NAME5 = interface

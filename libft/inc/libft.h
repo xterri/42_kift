@@ -27,16 +27,6 @@ typedef	struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct		s_line
-{
-	char			*str;
-	char			*tmp;
-	int				fd;
-	int				size;
-	struct s_line	*next;
-}					t_line;
-
-int					get_next_line(const int fd, char **line);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);

@@ -27,7 +27,7 @@ FILES = bzero memalloc memccpy memchr memcmp memcpy memdel memmove memset \
 		isalnum isalpha isascii isdigit islower isprint isupper iswhitespace \
 		swap tolower toupper strtolower strtoupper itoa itoa_base atoi \
 		setnull setdoubletozero setunsignedinttozero setunsignedshorttozero \
-		abs sign rgb_to_hex shade_colour percentof powerof
+		abs sign rgb_to_hex shade_colour percentof powerof 
 
 FUNCS = $(addprefix $(FT_), $(FILES))
 
@@ -58,9 +58,9 @@ END_COLOUR = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(O_SRC) obj/get_next_line.o
+$(NAME): $(O_SRC) 
 	@printf "$(YELLOW_LIGHT)\nBuilding $@...$(END_COLOUR)"
-	@ar rcs $@ $(O_SRC) obj/get_next_line.o
+	@ar rcs $@ $(O_SRC)
 	@echo "$(GREEN) Library Complete!$(END_COLOUR)"
 
 $(O_LOC)%.o: $(C_LOC)%.c

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "database.h"
+#include "server.h"
 
 int		load(const char *file)
 {

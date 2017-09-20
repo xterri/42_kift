@@ -34,6 +34,15 @@ typedef struct		s_node
 	struct s_node	*next;
 }					t_node;
 
+typedef struct		s_line
+{
+	char		*str;
+	char		*tmp;
+	int		fd;
+	int		size;
+	struct s_line	*next;
+}			t_line;
+
 /*
 ** GLOBAL VARIABLE - GIVES ACCESS TO "DATABASE"
 */
@@ -48,5 +57,6 @@ int				load(const char *file);
 void			unload(void);
 void			history_log(char *str, void *socket);
 void			send_history(int fd);
+int		get_next_line(const int fd, char **line);
 
 #endif

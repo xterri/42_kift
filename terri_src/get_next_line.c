@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "server.h"
 
 int		parse_newlines(t_line **lst, char **line)
 {
