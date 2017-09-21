@@ -53,13 +53,11 @@ void	*receive_server_message(void *socket)
 
 void	*send_message_to_server(void *socket)
 {
-	char		*buf;
+	char		buf[256];
 	t_socket	*s;
 
 	s = (t_socket *)socket;
 	dup2(s->fds[0], 0);
-	if (!(buf = ft_strnew(255)))
-		return (ft_putnull("Failed to malloc buf for receiving server messages"));
 	while (1)
 	{
 		ft_bzero(buf, 256);
@@ -75,7 +73,7 @@ void	*send_message_to_server(void *socket)
 			ErrorMessage("Error writing in socket");
 	}
 	free(buf);
-	return ((void *)buf);
+	return ((void *)1);
 }
 
 int		main(int argc, char **argv)
@@ -123,6 +121,7 @@ int		main(int argc, char **argv)
 		pthread_create(&t_id[0], NULL, receive_server_message, &s);
 		pthread_create(&t_id[1], NULL, send_message_to_server, &s2);
 		pthread_join(t_id[0], NULL);
+		pthread_cancel(t_id[1]);
 		close(s.server_socket_fd);
 		close(s.client_socket_fd);
 		dup2(s.stdin_save, 0);
