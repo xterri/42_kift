@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:36:15 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/20 16:05:30 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/21 12:18:17 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft.h"
 # include <mlx.h>
 # include <pthread.h>
+# include <math.h>
 
 # define WIN_W 1600
 # define WIN_H 1200
@@ -39,6 +40,8 @@ typedef struct			s_scrollbar
 {
 	t_image				*bg;
 	t_image				*clickything;
+	int					size;
+	int					top_start;
 }						t_scrollbar;
 
 typedef struct			s_string
@@ -57,6 +60,7 @@ typedef struct			s_interface
 	int					str_count;
 	int					max_nodes;
 	unsigned int		md:1;
+	unsigned int		sbon:1;
 }						t_interface;
 
 t_interface				*initialize_i(void *mlx);

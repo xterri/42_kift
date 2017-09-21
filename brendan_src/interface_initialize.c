@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:41:01 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/20 16:01:04 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/20 20:03:10 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static void		initialize_hooks(t_interface *i)
 	mlx_do_key_autorepeatoff(i->mlx);
 	mlx_hook(i->win, 4, 0, mouse_press, i);
 	mlx_hook(i->win, 2, 0, key_press, i);
-	//mlx_hook(i->win, 12, 0, expose_i_guess, i);
 	mlx_hook(i->win, 17, 0, exit_window, i);
 	mlx_loop_hook(i->mlx, forever_loop, i);
 }
