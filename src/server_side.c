@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/20 14:34:10 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/20 16:39:51 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	*receive_client_message(void *socket)
 			dup2(s->fds[1], 1);
 			ft_putendl_fd(buf, s->stdout_save);
 			write(s->fds[1], response, ft_strlen(response));
+			break ;
 		}
 		else if (ft_strstr(buf, "hey baka"))
 		{
@@ -84,12 +85,10 @@ void	*receive_client_message(void *socket)
 
 void	*send_message_to_client(void *socket)
 {
-	char		*buf;
+	char		buf[256];
 	t_socket	*s;
 
 	s = (t_socket *)socket;
-	if (!(buf = ft_strnew(255)))
-		return (ft_putnull("Failed to malloc buf for receiving client messages"));
 	while (1)
 	{
 		ft_bzero(buf, s->n);
@@ -99,10 +98,9 @@ void	*send_message_to_client(void *socket)
 		if ((s->n = send(s->client_socket_fd, buf, s->n, 0)) < 0)
 			ErrorMessage("Error writing to client socket fd");
 	}
-	free(buf);
 	close(s->fds[0]);
 	dup2(s->stdin_save, 0);
-	return ((void *)buf);
+	return ((void *)1);
 }
 
 int		main(int argc, char **argv)
@@ -151,6 +149,7 @@ int		main(int argc, char **argv)
 			pthread_create(&t_id[0], NULL, receive_client_message, &s);
 			pthread_create(&t_id[1], NULL, send_message_to_client, &s);
 			pthread_join(t_id[0], NULL);
+			pthread_cancel(t_id[1]);
 			close(s.client_socket_fd);
 		}
 		close(s.server_socket_fd);
