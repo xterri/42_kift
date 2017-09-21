@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:10:11 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/21 12:38:59 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/21 12:39:49 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void		scrollbar_display(t_interface *i, int num_of_hidden_nodes)
 	{
 		old_num_of_hidden_nodes = num_of_hidden_nodes;
 		i->sb->size = (TXTBX_END_H - TXTBX_START_H + 5) * (1 / num_of_hidden_nodes);
-		ft_putnbr(inverse_power(2, num_of_hidden_nodes));
 		mlx_destroy_image(i->mlx, i->sb->clickything->img);
 		free(i->sb->clickything);
 		i->sb->clickything = new_image(i, 40, i->sb->size);
