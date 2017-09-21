@@ -1,4 +1,3 @@
-/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   interface_images.c                                 :+:      :+:    :+:   */
@@ -6,11 +5,25 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:50:46 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/19 20:05:21 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/20 15:49:34 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "interface.h"
+
+void		fill_image_with_colour(t_image *i, int c)
+{
+	int		x;
+	int		y;
+
+	y = -1;
+	while (++y < i->h)
+	{
+		x = -1;
+		while (++x < i->w)
+			i->pix[(y * i->w) + x] = c;
+	}
+}
 
 t_image		*new_image(t_interface *i, int width, int height)
 {
@@ -34,3 +47,20 @@ t_image		*get_background(t_interface *i)
 	bg->img = mlx_xpm_file_to_image(i->mlx, "images/bg.xpm", &bg->w, &bg->h);
 	return (bg);
 }
+
+t_scrollbar	*get_scrollbar(t_interface *i)
+{
+	t_image		*bg;
+	t_image		*clickything;
+	t_scrollbar	*sb;
+
+	bg = new_image(i, 40, TXTBX_END_H - TXTBX_START_H + 5);
+	fill_image_with_colour(bg, 0xAAAAAA);
+	clickything = new_image(i, 40, TXTBX_END_H - TXTBX_START_H + 5);
+	fill_image_with_colour(clickything, 0x444444);
+	sb = (t_scrollbar *)ft_memalloc(sizeof(t_scrollbar));
+	sb->bg = bg;
+	sb->clickything = clickything;
+	return (sb);
+}
+

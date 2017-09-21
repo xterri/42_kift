@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:36:15 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/20 12:42:15 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/20 16:05:30 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 
 # define WIN_W 1600
 # define WIN_H 1200
+# define TXTBX_START_H 430
+# define TXTBX_END_H 1150
+# define TXTBX_START_W 100
+# define TXTBX_END_W 1500
 
 typedef struct			s_image
 {
@@ -31,18 +35,41 @@ typedef struct			s_image
 	int					h;
 }						t_image;
 
+typedef struct			s_scrollbar
+{
+	t_image				*bg;
+	t_image				*clickything;
+}						t_scrollbar;
+
+typedef struct			s_string
+{
+	char				*s;
+	struct s_string		*next;
+}						t_string;
+
 typedef struct			s_interface
 {
 	void				*mlx;
 	void				*win;
 	t_image				*bg;
+	t_string			*s;
+	t_scrollbar			*sb;
+	int					str_count;
+	int					max_nodes;
+	unsigned int		md:1;
 }						t_interface;
 
 t_interface				*initialize_i(void *mlx);
 t_image					*new_image(t_interface *i, int width, int height);
 t_image					*get_background(t_interface *i);
+t_scrollbar				*get_scrollbar(t_interface *i);
+void					fill_image_with_colour(t_image *i, int c);
 int						mouse_press(int button, int x, int y, t_interface *i);
 int						exit_window(t_interface *i);
 int						key_press(int keycode, t_interface *i);
+int						forever_loop(t_interface *i);
+
+t_string				*new_node(char *s);
+t_string				*add_string_to_list(t_interface *i, char *new_string);
 
 #endif

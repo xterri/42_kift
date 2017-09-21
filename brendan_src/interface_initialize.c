@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:41:01 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/20 12:29:32 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/20 16:01:04 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int				key_press(int keycode, t_interface *i)
 int				mouse_press(int button, int x, int y, t_interface *i)
 {
 	if (button == 1)
-		mlx_string_put(i->mlx, i->win, x, y, 0x55AAFF, "testing");
+		i->md = (x * y * 0) + 1;
 	return (1);
 }
 
@@ -41,7 +41,7 @@ static void		initialize_hooks(t_interface *i)
 	mlx_hook(i->win, 2, 0, key_press, i);
 	//mlx_hook(i->win, 12, 0, expose_i_guess, i);
 	mlx_hook(i->win, 17, 0, exit_window, i);
-	//mlx_loop_hook(i->mlx, forever_loop, i);
+	mlx_loop_hook(i->mlx, forever_loop, i);
 }
 
 t_interface		*initialize_i(void *mlx)
@@ -53,6 +53,10 @@ t_interface		*initialize_i(void *mlx)
 	i->mlx = mlx;
 	if (!(i->bg = get_background(i)))
 		return (ft_putnull("Failed to get background image"));
+	if (!(i->sb = get_scrollbar(i)))
+		return (ft_putnull("Failed to get scrollbar"));
+	i->s = NULL;
+	i->max_nodes = (TXTBX_END_H - TXTBX_START_H) / 20;
 	i->win = mlx_new_window(i->mlx, WIN_W, WIN_H, "Say my name, say my name");
 	mlx_put_image_to_window(i->mlx, i->win, i->bg->img, 0, 0);
 	initialize_hooks(i);
