@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:36:15 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/21 15:00:51 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/21 20:06:47 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define TXTBX_END_H 1150
 # define TXTBX_START_W 100
 # define TXTBX_END_W 1500
+# define MAX_STRINGS_TO_DISPLAY 200
 
 typedef struct			s_image
 {

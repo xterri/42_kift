@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:10:11 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/21 19:43:29 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/21 20:11:25 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ static void		string_display(t_interface *i)
 	if (start_height == TXTBX_START_H)
 		scrollbar_display(i, i->str_count - i->max_nodes);
 	counter = i->sb->count;
-	printf("counter: %d\n", counter);
 	while (traveller)
 	{
 		if (counter-- < 0)
@@ -72,41 +71,12 @@ static void		string_display(t_interface *i)
 
 void			for_testing(t_interface *i)
 {
+	static int	d;
+
 	add_string_to_list(i, "TEST");
 	add_string_to_list(i, "Halfling paladin");
 	add_string_to_list(i, "Insert the dater");
-	add_string_to_list(i, "1");
-	add_string_to_list(i, "2");
-	add_string_to_list(i, "3");
-	add_string_to_list(i, "4");
-	add_string_to_list(i, "5");
-	add_string_to_list(i, "6");
-	add_string_to_list(i, "7");
-	add_string_to_list(i, "8");
-	add_string_to_list(i, "9");
-	add_string_to_list(i, "10");
-	add_string_to_list(i, "11");
-	add_string_to_list(i, "12");
-	add_string_to_list(i, "13");
-	add_string_to_list(i, "14");
-	add_string_to_list(i, "15");
-	add_string_to_list(i, "16");
-	add_string_to_list(i, "17");
-	add_string_to_list(i, "18");
-	add_string_to_list(i, "19");
-	add_string_to_list(i, "20");
-	add_string_to_list(i, "21");
-	add_string_to_list(i, "22");
-	add_string_to_list(i, "23");
-	add_string_to_list(i, "24");
-	add_string_to_list(i, "25");
-	add_string_to_list(i, "26");
-	add_string_to_list(i, "27");
-	add_string_to_list(i, "28");
-	add_string_to_list(i, "29");
-	add_string_to_list(i, "30");
-	add_string_to_list(i, "31");
-	add_string_to_list(i, "32");
+	add_string_to_list(i, ft_itoa(d++));
 }
 
 void			draw_stuff(t_interface *i)
