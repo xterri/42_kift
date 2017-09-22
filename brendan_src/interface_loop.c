@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:10:11 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/21 20:11:25 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/21 21:11:00 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,14 @@ static void		string_display(t_interface *i)
 void			for_testing(t_interface *i)
 {
 	static int	d;
+	char		*tmp;
 
+	tmp = ft_itoa(d++);
 	add_string_to_list(i, "TEST");
 	add_string_to_list(i, "Halfling paladin");
 	add_string_to_list(i, "Insert the dater");
-	add_string_to_list(i, ft_itoa(d++));
+	add_string_to_list(i, tmp);
+	free(tmp);
 }
 
 void			draw_stuff(t_interface *i)
