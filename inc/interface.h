@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:36:15 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/21 12:18:17 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/21 15:00:51 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ typedef struct			s_scrollbar
 	t_image				*clickything;
 	int					size;
 	int					top_start;
+	int					top_end;
+	int					y_diff;
+	int					count;
 }						t_scrollbar;
 
 typedef struct			s_string
@@ -69,9 +72,13 @@ t_image					*get_background(t_interface *i);
 t_scrollbar				*get_scrollbar(t_interface *i);
 void					fill_image_with_colour(t_image *i, int c);
 int						mouse_press(int button, int x, int y, t_interface *i);
+int						mouse_release(int button, int x, int y, t_interface *i);
+int						mouse_move(int x, int y, t_interface *i);
 int						exit_window(t_interface *i);
 int						key_press(int keycode, t_interface *i);
 int						forever_loop(t_interface *i);
+void					draw_stuff(t_interface *i);
+void					for_testing(t_interface *i);
 
 t_string				*new_node(char *s);
 t_string				*add_string_to_list(t_interface *i, char *new_string);

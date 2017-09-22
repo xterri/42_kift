@@ -29,7 +29,8 @@ t_image		*new_image(t_interface *i, int width, int height)
 {
 	t_image		*image;
 
-	image = (t_image *)malloc(sizeof(t_image));
+	if (!(image = (t_image *)malloc(sizeof(t_image))))
+		return (ft_putnull("Failed to get new_image"));
 	image->img = mlx_new_image(i->mlx, width, height);
 	image->pix = (int *)mlx_get_data_addr(image->img,
 			&image->bpp, &image->w, &image->endian);
@@ -53,8 +54,9 @@ t_scrollbar	*get_scrollbar(t_interface *i)
 	t_scrollbar	*sb;
 
 	if (!(sb = (t_scrollbar *)ft_memalloc(sizeof(t_scrollbar))))
-		return (ft_putnull("Failed to malloc space for scrollbar struct"));
+		return (ft_putnull("Failed to malloc space for sb"));
 	sb->size = (TXTBX_END_H - TXTBX_START_H + 5);
+	sb->top_start = TXTBX_START_H;
 	sb->bg = new_image(i, 40, sb->size);
 	sb->clickything = new_image(i, 40, sb->size);
 	fill_image_with_colour(sb->bg, 0x444444);
