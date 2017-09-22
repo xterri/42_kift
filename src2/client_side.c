@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:20:16 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/20 18:26:50 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/21 13:07:35 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,16 @@ void	*receive_server_message(void *socket)
 			ErrorMessage("Error reading socket");
 		ft_putstr("BAKA: ");
 		ft_putendl(buf);
-		snprintf(buf2, sizeof(buf2), "spd-say \"%s\"", buf);
+		snprintf(buf2, sizeof(buf2), "say -v \"Victoria\" \"%s\"", buf);
+		// for ubuntu replace with code below
+		//snprintf(buf2, sizeof(buf2), "spd-say \"%s\"", buf);
 		system(buf2);
 		if (ft_strequ(buf, "ok let me show you your history"))
 		{
 			recv_history(s->client_socket_fd);
-			system("xterm -hold -e cat log.txt &");
+			system("cat log.txt");
+			// for ubuntu replace with code below
+			//system("xterm -hold -e cat log.txt &");
 		}
 		if (ft_strequ(buf, "bye bye now"))
 		{

@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:21 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/20 16:39:51 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/21 13:16:41 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*receive_client_message(void *socket)
 		ft_bzero(buf, 256);
 		if ((s->n = recv(s->client_socket_fd, buf, 255, 0)) < 0)
 			ErrorMessage("Error reading socket into buffer");
-		else if (s->n < 0)
+		else if (s->n == 0)
 		{
 			ft_putstr("connection closed\n");
 			break ;
