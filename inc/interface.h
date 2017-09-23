@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:36:15 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/22 17:03:20 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 15:32:47 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,11 @@ int						mouse_move(int x, int y, t_interface *i);
 int						exit_window(t_interface *i);
 int						key_press(int keycode, t_interface *i);
 int						forever_loop(t_interface *i);
-void					draw_stuff(t_interface *i);
 void					for_testing(t_interface *i);
 
 t_string				*new_node(char *s);
 t_string				*add_string_to_list(t_interface *i, char *new_string);
 
+void					free_string_list(t_string *head);
+void					free_all_images(t_interface *i);
 #endif

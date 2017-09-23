@@ -1,11 +1,12 @@
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   interface_images.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 14:50:46 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/20 15:49:34 by bpierce          ###   ########.fr       */
+/*   Created: 2017/09/23 14:45:31 by bpierce           #+#    #+#             */
+/*   Updated: 2017/09/23 15:12:01 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +58,20 @@ t_scrollbar	*get_scrollbar(t_interface *i)
 		return (ft_putnull("Failed to malloc space for sb"));
 	sb->size = TXTBX_END_H - TXTBX_START_H;
 	sb->top_start = TXTBX_START_H;
-	sb->bg = new_image(i, 40, sb->size);
-	sb->clickything = new_image(i, 30, sb->size);
+	sb->bg = new_image(i, 40, sb->size + 5);
+	sb->clickything = new_image(i, 30, sb->size + 5);
 	fill_image_with_colour(sb->bg, 0x444444);
 	fill_image_with_colour(sb->clickything, 0xAAAAAA);
 	return (sb);
+}
+
+void		free_all_images(t_interface *i)
+{
+	mlx_destroy_image(i->mlx, i->sb->bg->img);
+	mlx_destroy_image(i->mlx, i->sb->clickything->img);
+	free(i->sb->bg);
+	free(i->sb->clickything);
+	free(i->sb);
+	mlx_destroy_image(i->mlx, i->bg->img);
+	free(i->bg);
 }
