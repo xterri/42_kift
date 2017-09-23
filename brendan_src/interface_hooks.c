@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 14:46:02 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 15:31:29 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 16:36:15 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int				key_press(int keycode, t_interface *i)
 	if (keycode == 53)
 		exit_window(i);
 	return (1);
+}
+
+static int		mouse_press2(int button, int x, int y, t_interface *i)
+{
+
 }
 
 int				mouse_press(int button, int x, int y, t_interface *i)
