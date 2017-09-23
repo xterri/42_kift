@@ -6,59 +6,56 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:10:11 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/21 21:11:00 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 15:44:46 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "interface.h"
 
-static int		map_number(t_interface *i, int num_of_hidden_nodes)
+static int		map_number(int oldmax, int newmax, int old_number)
 {
 	int		oldrange;
-	int		newrange;
 
-	oldrange = (i->sb->top_end - TXTBX_START_H);
-	newrange = (num_of_hidden_nodes - 0);
-	return ((((i->sb->top_start - TXTBX_START_H) * newrange ) / oldrange) + 0);
+	oldrange = (oldmax - TXTBX_START_H == 0) ? 1 : (oldmax - TXTBX_START_H);
+	return ((((old_number - TXTBX_START_H) * newmax) / oldrange) + 0);
 }
-static void		scrollbar_display(t_interface *i, int num_of_hidden_nodes)
-{
-	static int	old_num_of_hidden_nodes;
 
-	i->sbon = 1;
-	mlx_put_image_to_window(i->mlx, i->win, i->sb->bg->img, TXTBX_END_W - 20,
-			TXTBX_START_H);
-	if (old_num_of_hidden_nodes < num_of_hidden_nodes)
+static void		scrollbar_display(t_interface *i, int num_hidden)
+{
+	static int	old_hidden;
+
+	if (old_hidden < num_hidden)
 	{
-		old_num_of_hidden_nodes = num_of_hidden_nodes;
-		i->sb->size = (TXTBX_END_H - TXTBX_START_H + 5.0)
-			* 1 / sqrt(num_of_hidden_nodes);
+		i->sb->size = (TXTBX_END_H - TXTBX_START_H) * 1 / sqrt(num_hidden);
+		if (i->sb->top_start == i->sb->top_end)
+			i->sb->top_start = TXTBX_END_H - i->sb->size;
+		i->sb->top_end = TXTBX_END_H - i->sb->size;
 		mlx_destroy_image(i->mlx, i->sb->clickything->img);
 		free(i->sb->clickything);
-		i->sb->clickything = new_image(i, 40, i->sb->size);
+		i->sb->clickything = new_image(i, 30, i->sb->size + 5);
 		fill_image_with_colour(i->sb->clickything, 0xAAAAAA);
-		i->sb->top_end = TXTBX_END_H - i->sb->size + 5.0;
+		old_hidden = num_hidden;
 	}
-	i->sb->count = map_number(i, num_of_hidden_nodes);
+	i->sb->start_no = map_number(i->sb->top_end, num_hidden, i->sb->top_start);
+	mlx_put_image_to_window(i->mlx, i->win, i->sb->bg->img, TXTBX_END_W - 20,
+			TXTBX_START_H);
 	mlx_put_image_to_window(i->mlx, i->win, i->sb->clickything->img,
-			TXTBX_END_W - 20, i->sb->top_start);	
+			TXTBX_END_W - 15, i->sb->top_start);
 }
 
 static void		string_display(t_interface *i)
 {
 	t_string	*traveller;
 	int			start_height;
-	int			counter;
 
 	traveller = i->s;
 	start_height = (i->str_count > i->max_nodes) ? TXTBX_START_H :
 		TXTBX_END_H - (i->str_count * 20);
-	if (start_height == TXTBX_START_H)
+	if (start_height == TXTBX_START_H && (i->sbon = 1))
 		scrollbar_display(i, i->str_count - i->max_nodes);
-	counter = i->sb->count;
 	while (traveller)
 	{
-		if (counter-- < 0)
+		if (--i->sb->start_no < 0)
 		{
 			if (start_height < TXTBX_END_H)
 				mlx_string_put(i->mlx, i->win, TXTBX_START_W,
@@ -73,23 +70,24 @@ void			for_testing(t_interface *i)
 {
 	static int	d;
 	char		*tmp;
+	//char		*tmp2;
+	//char		*tmp3;
 
 	tmp = ft_itoa(d++);
-	add_string_to_list(i, "TEST");
-	add_string_to_list(i, "Halfling paladin");
-	add_string_to_list(i, "Insert the dater");
+	//tmp2 = ft_itoa(d++);
+	//tmp3 = ft_itoa(d++);
 	add_string_to_list(i, tmp);
+	//add_string_to_list(i, tmp2);
+	//add_string_to_list(i, tmp3);
 	free(tmp);
-}
-
-void			draw_stuff(t_interface *i)
-{
-	mlx_put_image_to_window(i->mlx, i->win, i->bg->img, 0, 0);
-	string_display(i);
+	//free(tmp2);
+	//free(tmp3);
 }
 
 int				forever_loop(t_interface *i)
 {
-	draw_stuff(i);
+	for_testing(i);
+	mlx_put_image_to_window(i->mlx, i->win, i->bg->img, 0, 0);
+	string_display(i);
 	return (1);
 }

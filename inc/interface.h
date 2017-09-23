@@ -6,7 +6,6 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:36:15 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 16:43:09 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +24,9 @@
 # define TXTBX_END_H 1150
 # define TXTBX_START_W 100
 # define TXTBX_END_W 1500
-# define MAX_STRINGS_TO_DISPLAY 201
-
-/*
-** This is the interface stuff
-*/
+# define SB_START_H TXTBX_START_H
+# define SB_END_H TXTBX_END_H + 5
+# define MAX_STRINGS_TO_DISPLAY 200
 
 typedef struct			s_image
 {
@@ -49,8 +46,14 @@ typedef struct			s_scrollbar
 	int					top_start;
 	int					top_end;
 	int					y_diff;
-	int					count;
+	int					start_no;
 }						t_scrollbar;
+
+typedef struct			s_button
+{
+	t_image				*connect;
+	t_image				*connected;
+}						t_button;
 
 typedef struct			s_string
 {
@@ -63,6 +66,7 @@ typedef struct			s_interface
 	void				*mlx;
 	void				*win;
 	t_image				*bg;
+	t_button			*but;
 	t_string			*s;
 	t_scrollbar			*sb;
 	int					str_count;
@@ -73,7 +77,8 @@ typedef struct			s_interface
 
 t_interface				*initialize_i(void *mlx);
 t_image					*new_image(t_interface *i, int width, int height);
-t_image					*get_background(t_interface *i);
+t_image					*new_xpm_image(t_interface *i, char *image_address);
+t_button				*get_buttons(t_interface *i);
 t_scrollbar				*get_scrollbar(t_interface *i);
 void					fill_image_with_colour(t_image *i, int c);
 int						mouse_press(int button, int x, int y, t_interface *i);
@@ -82,10 +87,12 @@ int						mouse_move(int x, int y, t_interface *i);
 int						exit_window(t_interface *i);
 int						key_press(int keycode, t_interface *i);
 int						forever_loop(t_interface *i);
-void					draw_stuff(t_interface *i);
+
 void					for_testing(t_interface *i);
 
 t_string				*new_node(char *s);
 t_string				*add_string_to_list(t_interface *i, char *new_string);
 
+void					free_string_list(t_string *head);
+void					free_all_images(t_interface *i);
 #endif

@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:41:01 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/21 19:44:47 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 16:09:57 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,63 +15,11 @@
 int				exit_window(t_interface *i)
 {
 	(void)i;
+	free_string_list(i->s);
+	free_all_images(i);
+	mlx_destroy_window(i->mlx, i->win);
+	free(i);
 	exit(0);
-	return (1);
-}
-
-int				key_press(int keycode, t_interface *i)
-{
-	(void)i;
-	if (keycode == 53)
-		exit(0);
-	return (1);
-}
-
-int				mouse_press(int button, int x, int y, t_interface *i)
-{
-	int		scroll_speed;
-
-	scroll_speed = 20;
-	if (button == 3)
-	{
-		for_testing(i);
-		draw_stuff(i);
-	}
-	else if (button == 1)
-		if (y >= i->sb->top_start && y <= i->sb->top_start + i->sb->size)
-			if (x >= TXTBX_END_W - 20 && x <= TXTBX_END_W + 20 && (i->md = 1))
-				i->sb->y_diff = y - i->sb->top_start;
-	if (button == 4)
-		if (i->sbon == 1)
-			if (i->sb->top_start >= TXTBX_START_H &&
-					i->sb->top_start < TXTBX_END_H - (i->sb->size + scroll_speed))
-				i->sb->top_start += scroll_speed;
-	if (button == 5)
-		if (i->sbon == 1)
-			if (i->sb->top_start > TXTBX_START_H + scroll_speed &&
-					i->sb->top_start <= TXTBX_END_H - (i->sb->size))
-				i->sb->top_start -= scroll_speed;
-	return (1);
-}
-
-int				mouse_release(int button, int x, int y, t_interface *i)
-{
-	(void)button;
-	(void)x;
-	(void)y;
-	i->md = 0;
-	return (1);
-}
-
-int				mouse_move(int x, int y, t_interface *i)
-{
-	(void)x;
-	if (i->sbon == 1)
-	{
-		if (i->md == 1)
-			if (!(y - i->sb->y_diff <= TXTBX_START_H) && !(y - i->sb->y_diff >= i->sb->top_end))
-				i->sb->top_start = y - i->sb->y_diff;
-	}
 	return (1);
 }
 
@@ -93,8 +41,10 @@ t_interface		*initialize_i(void *mlx)
 	if (!(i = (t_interface *)ft_memalloc(sizeof(t_interface))))
 		return (ft_putnull("Failed to malloc for s_interface"));
 	i->mlx = mlx;
-	if (!(i->bg = get_background(i)))
+	if (!(i->bg = new_xpm_image(i, "images/bg.xpm")))
 		return (ft_putnull("Failed to get background image"));
+	if (!(i->but = get_buttons(i)))
+		return (ft_putnull("Failed to get connected"));
 	if (!(i->sb = get_scrollbar(i)))
 		return (ft_putnull("Failed to get scrollbar struct"));
 	i->s = NULL;
