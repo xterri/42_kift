@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:10:11 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 15:39:48 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 15:44:46 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		map_number(int oldmax, int newmax, int old_number)
 	int		oldrange;
 
 	oldrange = (oldmax - TXTBX_START_H == 0) ? 1 : (oldmax - TXTBX_START_H);
-	return ((((old_number - TXTBX_START_H) * newmax ) / oldrange) + 0);
+	return ((((old_number - TXTBX_START_H) * newmax) / oldrange) + 0);
 }
 
 static void		scrollbar_display(t_interface *i, int num_hidden)
@@ -40,7 +40,7 @@ static void		scrollbar_display(t_interface *i, int num_hidden)
 	mlx_put_image_to_window(i->mlx, i->win, i->sb->bg->img, TXTBX_END_W - 20,
 			TXTBX_START_H);
 	mlx_put_image_to_window(i->mlx, i->win, i->sb->clickything->img,
-			TXTBX_END_W - 15, i->sb->top_start);	
+			TXTBX_END_W - 15, i->sb->top_start);
 }
 
 static void		string_display(t_interface *i)

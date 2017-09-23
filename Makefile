@@ -32,7 +32,7 @@ FILES4 = load check unload hash_function \
 # brendan's interface for testing
 NAME5 = interface
 FILES5 = interface interface_images interface_initialize interface_loop \
-		 interface_strings interface_hooks
+		 interface_strings interface_hooks interface_buttons
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FILES))

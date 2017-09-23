@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:41:01 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 15:11:52 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 16:09:57 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ t_interface		*initialize_i(void *mlx)
 	if (!(i = (t_interface *)ft_memalloc(sizeof(t_interface))))
 		return (ft_putnull("Failed to malloc for s_interface"));
 	i->mlx = mlx;
-	if (!(i->bg = get_background(i)))
+	if (!(i->bg = new_xpm_image(i, "images/bg.xpm")))
 		return (ft_putnull("Failed to get background image"));
+	if (!(i->but = get_buttons(i)))
+		return (ft_putnull("Failed to get connected"));
 	if (!(i->sb = get_scrollbar(i)))
 		return (ft_putnull("Failed to get scrollbar struct"));
 	i->s = NULL;

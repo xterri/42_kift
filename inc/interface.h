@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:36:15 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 15:32:47 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 16:14:56 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ typedef struct			s_scrollbar
 	int					start_no;
 }						t_scrollbar;
 
+typedef struct			s_button
+{
+	t_image				*connect;
+	t_image				*connected;
+}						t_button;
+
 typedef struct			s_string
 {
 	char				*s;
@@ -61,6 +67,7 @@ typedef struct			s_interface
 	void				*mlx;
 	void				*win;
 	t_image				*bg;
+	t_button			*but;
 	t_string			*s;
 	t_scrollbar			*sb;
 	int					str_count;
@@ -71,7 +78,8 @@ typedef struct			s_interface
 
 t_interface				*initialize_i(void *mlx);
 t_image					*new_image(t_interface *i, int width, int height);
-t_image					*get_background(t_interface *i);
+t_image					*new_xpm_image(t_interface *i, char *image_address);
+t_button				*get_buttons(t_interface *i);
 t_scrollbar				*get_scrollbar(t_interface *i);
 void					fill_image_with_colour(t_image *i, int c);
 int						mouse_press(int button, int x, int y, t_interface *i);
@@ -80,6 +88,7 @@ int						mouse_move(int x, int y, t_interface *i);
 int						exit_window(t_interface *i);
 int						key_press(int keycode, t_interface *i);
 int						forever_loop(t_interface *i);
+
 void					for_testing(t_interface *i);
 
 t_string				*new_node(char *s);

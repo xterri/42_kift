@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 14:45:31 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 15:12:01 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 16:09:26 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ t_image		*new_image(t_interface *i, int width, int height)
 	return (image);
 }
 
-t_image		*get_background(t_interface *i)
+t_image		*new_xpm_image(t_interface *i, char *image_address)
 {
-	t_image	*bg;
+	t_image	*image;
 
-	if (!(bg = (t_image *)ft_memalloc(sizeof(t_image))))
+	if (!(image = (t_image *)ft_memalloc(sizeof(t_image))))
 		return (ft_putnull("Failed to malloc space for bg"));
-	bg->img = mlx_xpm_file_to_image(i->mlx, "images/bg.xpm", &bg->w, &bg->h);
-	return (bg);
+	image->img = mlx_xpm_file_to_image(i->mlx, image_address, &image->w, &image->h);
+	return (image);
 }
 
 t_scrollbar	*get_scrollbar(t_interface *i)
