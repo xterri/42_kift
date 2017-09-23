@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:41:01 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/21 19:44:47 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 12:52:29 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,26 @@ int				mouse_press(int button, int x, int y, t_interface *i)
 		if (y >= i->sb->top_start && y <= i->sb->top_start + i->sb->size)
 			if (x >= TXTBX_END_W - 20 && x <= TXTBX_END_W + 20 && (i->md = 1))
 				i->sb->y_diff = y - i->sb->top_start;
-	if (button == 4)
-		if (i->sbon == 1)
-			if (i->sb->top_start >= TXTBX_START_H &&
-					i->sb->top_start < TXTBX_END_H - (i->sb->size + scroll_speed))
-				i->sb->top_start += scroll_speed;
-	if (button == 5)
-		if (i->sbon == 1)
-			if (i->sb->top_start > TXTBX_START_H + scroll_speed &&
-					i->sb->top_start <= TXTBX_END_H - (i->sb->size))
-				i->sb->top_start -= scroll_speed;
+	if (button == 4 && i->sbon)
+	{
+		if (i->sb->top_start >= TXTBX_START_H &&
+				i->sb->top_start < i->sb->top_end)
+		{
+			i->sb->top_start += (i->sb->top_start + scroll_speed) >
+				(i->sb->top_end) ? (i->sb->top_end - i->sb->top_start) :
+				scroll_speed;
+		}
+	}
+	if (button == 5 && i->sbon)
+	{
+		if (i->sb->top_start <= i->sb->top_end &&
+				i->sb->top_start > TXTBX_START_H)
+		{
+			i->sb->top_start -= (i->sb->top_start - scroll_speed) <
+				(TXTBX_START_H) ? i->sb->top_start - TXTBX_START_H :
+				scroll_speed;
+		}
+	}
 	return (1);
 }
 
@@ -69,8 +79,10 @@ int				mouse_move(int x, int y, t_interface *i)
 	if (i->sbon == 1)
 	{
 		if (i->md == 1)
+		{
 			if (!(y - i->sb->y_diff <= TXTBX_START_H) && !(y - i->sb->y_diff >= i->sb->top_end))
 				i->sb->top_start = y - i->sb->y_diff;
+		}
 	}
 	return (1);
 }

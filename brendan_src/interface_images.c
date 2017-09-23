@@ -55,10 +55,10 @@ t_scrollbar	*get_scrollbar(t_interface *i)
 
 	if (!(sb = (t_scrollbar *)ft_memalloc(sizeof(t_scrollbar))))
 		return (ft_putnull("Failed to malloc space for sb"));
-	sb->size = (TXTBX_END_H - TXTBX_START_H + 5);
+	sb->size = TXTBX_END_H - TXTBX_START_H;
 	sb->top_start = TXTBX_START_H;
 	sb->bg = new_image(i, 40, sb->size);
-	sb->clickything = new_image(i, 40, sb->size);
+	sb->clickything = new_image(i, 30, sb->size);
 	fill_image_with_colour(sb->bg, 0x444444);
 	fill_image_with_colour(sb->clickything, 0xAAAAAA);
 	return (sb);
