@@ -12,14 +12,13 @@
 
 NAME = server
 NAME2 = client
-NAME3 = interface
 
 FILES = server_main \
 		server_send server_recv \
 		server_response server_response_command \
 		get_client_connection
 
-FILES2 = client_main \
+FILES2 = client_main client_standby \
 		 client_send client_recv \
 		 client_child check_special_commands \
 		 get_server_connection
@@ -83,7 +82,7 @@ LIB_SRC = $(addprefix $(LIB_LOC), $(LIB_NAM))
 
 H_LOCS = -I inc -I libft/inc -I minilibx
 
-HEADERS = inc/server.h inc/respond.h libft/inc/libft.h
+HEADERS = inc/server.h inc/respond.h libft/inc/libft.h inc/interface.h
 
 C_FLAGS = -Wall -Wextra -Werror
 
@@ -114,11 +113,7 @@ $(NAME): $(O_SRC) $(O_SRC3) $(O_SRC4) $(LIB_SRC)
 	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
 	@gcc $(C_FLAGS) $^ -lpthread -o $@
 
-$(NAME2): $(O_SRC2) $(O_SRC3) $(LIB_SRC)
-	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
-	@gcc $(C_FLAGS) $^ -lpthread -o $@
-
-$(NAME3): $(O_SRC5) $(LIB_SRC) $(MLBX)
+$(NAME2): $(O_SRC2) $(O_SRC3) $(O_SRC5) $(LIB_SRC)
 	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
 	@gcc $(C_FLAGS) $(MLBX_FLAGS) $^ -lpthread -o $@
 
@@ -170,7 +165,6 @@ clean:
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(NAME2)
-	@/bin/rm -f $(NAME3)
 	@make fclean -C $(LIB_LOC)
 	@echo "$(GREEN)fclean complete!$(END_COLOUR)"
 

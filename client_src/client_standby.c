@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   interface.c                                        :+:      :+:    :+:   */
+/*   client_standby.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 14:33:41 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 15:54:12 by bpierce          ###   ########.fr       */
+/*   Created: 2017/09/24 15:22:40 by bpierce           #+#    #+#             */
+/*   Updated: 2017/09/24 15:40:33 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "interface.h"
+#include "server.h"
 
-void		*interface(void *j)
+void	client_standby(t_interface *i)
 {
-	void		*mlx;
-	t_interface *i;
-
-	i = (t_interface *)j;
-	mlx = mlx_init();
-	if (!(i = initialize_i(mlx)))
-		return (ft_putnull("Failed to initialize interface struct"));
-	mlx_loop(mlx);
-	return (NULL);
+	while (!i->bc)
+		;
 }
