@@ -113,7 +113,7 @@ $(NAME): $(O_SRC) $(O_SRC3) $(O_SRC4) $(LIB_SRC)
 	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
 	@gcc $(C_FLAGS) $^ -lpthread -o $@
 
-$(NAME2): $(O_SRC2) $(O_SRC3) $(O_SRC5) $(LIB_SRC)
+$(NAME2): $(O_SRC2) $(O_SRC3) $(O_SRC5) $(LIB_SRC) $(MLBX)
 	@echo "$(YELLOW_BOLD)Compiling executable... $@$(END_COLOUR)"
 	@gcc $(C_FLAGS) $(MLBX_FLAGS) $^ -lpthread -o $@
 
