@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:10:11 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 20:00:31 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 22:34:51 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,27 +66,8 @@ static void		string_display(t_interface *i)
 	}
 }
 
-void			for_testing(t_interface *i)
-{
-	static int	d;
-	char		*tmp;
-	//char		*tmp2;
-	//char		*tmp3;
-
-	tmp = ft_itoa(d++);
-	//tmp2 = ft_itoa(d++);
-	//tmp3 = ft_itoa(d++);
-	add_string_to_list(i, tmp);
-	//add_string_to_list(i, tmp2);
-	//add_string_to_list(i, tmp3);
-	free(tmp);
-	//free(tmp2);
-	//free(tmp3);
-}
-
 int				forever_loop(t_interface *i)
 {
-	for_testing(i);
 	mlx_put_image_to_window(i->mlx, i->win,
 			i->bg->img, 0, 0);
 	mlx_put_image_to_window(i->mlx, i->win,

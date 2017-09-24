@@ -35,7 +35,7 @@ FILES4 = alarm_response bye_response count_negations email_response \
 		 free_array strjoin
 
 FILES5 = interface interface_images interface_initialize interface_loop \
-		 interface_strings interface_hooks interface_buttons
+		 interface_strings interface_hooks interface_free
 
 C_LOC = server_src/
 CuNAM = $(addsuffix .c, $(FILES))

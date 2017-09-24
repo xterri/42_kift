@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 13:11:10 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/22 16:53:57 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 22:30:14 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,4 @@ t_string	*add_string_to_list(t_interface *i, char *new_string)
 		}
 	}
 	return (i->s);
-}
-
-void		free_string_list(t_string *head)
-{
-	t_string	*deleteme;
-
-	while (head)
-	{
-		deleteme = head;
-		free(head->s);
-		head = head->next;
-		free(deleteme);
-	}
 }

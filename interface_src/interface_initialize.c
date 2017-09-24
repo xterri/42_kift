@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:41:01 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 16:09:57 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 22:28:52 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 int				exit_window(t_interface *i)
 {
-	(void)i;
-	free_string_list(i->s);
-	free_all_images(i);
-	mlx_destroy_window(i->mlx, i->win);
-	free(i);
+	free_everything(i);
 	exit(0);
 	return (1);
 }

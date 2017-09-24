@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 14:45:31 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 16:09:26 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/23 22:36:50 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ t_image		*new_xpm_image(t_interface *i, char *image_address)
 
 	if (!(image = (t_image *)ft_memalloc(sizeof(t_image))))
 		return (ft_putnull("Failed to malloc space for bg"));
-	image->img = mlx_xpm_file_to_image(i->mlx, image_address, &image->w, &image->h);
+	image->img = mlx_xpm_file_to_image(i->mlx, image_address,
+			&image->w, &image->h);
 	return (image);
 }
 
@@ -65,13 +66,17 @@ t_scrollbar	*get_scrollbar(t_interface *i)
 	return (sb);
 }
 
-void		free_all_images(t_interface *i)
+t_button	*get_buttons(t_interface *i)
 {
-	mlx_destroy_image(i->mlx, i->sb->bg->img);
-	mlx_destroy_image(i->mlx, i->sb->clickything->img);
-	free(i->sb->bg);
-	free(i->sb->clickything);
-	free(i->sb);
-	mlx_destroy_image(i->mlx, i->bg->img);
-	free(i->bg);
+	t_button	*but;
+
+	if (!(but = (t_button *)ft_memalloc(sizeof(t_button))))
+		return (ft_putnull("Failed to malloc size for t_button"));
+	if (!(but->connect = new_xpm_image(i, "images/connect.xpm")))
+		return (ft_putnull("Failed to get images/connect.xpm"));
+	if (!(but->shadow = new_xpm_image(i, "images/connect_shadow.xpm")))
+		return (ft_putnull("Failed to get images/connect_shadow.xpm"));
+	if (!(but->connected = new_xpm_image(i, "images/bg.xpm")))
+		return (ft_putnull("Failed to get images/"));
+	return (but);
 }
