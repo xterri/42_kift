@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:52 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 15:51:12 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/24 16:29:48 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,17 @@ typedef struct			s_line
 }						t_line;
 
 /*
+** Struct for command line arguments
+*/
+
+typedef struct			s_args
+{
+	int					argc;
+	char				**argv;
+	t_interface			*i;
+}						t_args;
+
+/*
 ** Server functions
 */
 void					*server_send(void *socket);
@@ -75,6 +86,7 @@ void					get_client_connection(t_socket *s);
 /*
 ** Client functions
 */
+void					*client(void *args);
 void					*client_send(void *socket);
 void					*client_recv(void *socket);
 void					client_child(t_socket *s);

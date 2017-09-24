@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:20:25 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 15:52:23 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/24 16:31:38 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,13 @@ typedef struct			s_interface
 	unsigned int		bc:1;
 	unsigned int		connected:1;
 }						t_interface;
+
+typedef struct			s_args
+{
+	int					argc;
+	char				**argv;
+	t_interface			*i;
+}						t_args;
 
 void					client_standby(t_interface *i);
 void					*interface(void *j);
