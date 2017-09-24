@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   interface2.h                                       :+:      :+:    :+:   */
+/*   interface.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:20:25 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/23 17:20:52 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/23 19:32:14 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@
 
 # define WIN_W 1600
 # define WIN_H 1200
+
 # define TXTBX_START_H 430
 # define TXTBX_END_H 1150
 # define TXTBX_START_W 100
 # define TXTBX_END_W 1500
-# define SB_START_H TXTBX_START_H
-# define SB_END_H TXTBX_END_H + 5
+
+# define BUT_X 900
+# define BUT_Y 100
+
 # define MAX_STRINGS_TO_DISPLAY 200
 
 typedef struct			s_image
@@ -53,6 +56,7 @@ typedef struct			s_scrollbar
 typedef struct			s_button
 {
 	t_image				*connect;
+	t_image				*shadow;
 	t_image				*connected;
 }						t_button;
 
@@ -72,8 +76,9 @@ typedef struct			s_interface
 	t_scrollbar			*sb;
 	int					str_count;
 	int					max_nodes;
-	unsigned int		md:1;
+	unsigned int		sc:1;
 	unsigned int		sbon:1;
+	unsigned int		bc:1;
 }						t_interface;
 
 t_interface				*initialize_i(void *mlx);

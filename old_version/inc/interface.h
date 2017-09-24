@@ -24,8 +24,6 @@
 # define TXTBX_END_H 1150
 # define TXTBX_START_W 100
 # define TXTBX_END_W 1500
-# define SB_START_H TXTBX_START_H
-# define SB_END_H TXTBX_END_H + 5
 # define MAX_STRINGS_TO_DISPLAY 200
 
 typedef struct			s_image
@@ -52,6 +50,7 @@ typedef struct			s_scrollbar
 typedef struct			s_button
 {
 	t_image				*connect;
+	t_image				*connect_shadow;
 	t_image				*connected;
 }						t_button;
 
