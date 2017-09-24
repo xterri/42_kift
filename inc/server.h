@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:52 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 16:29:48 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 16:39:39 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct			s_line
 /*
 ** Struct for command line arguments
 */
+typedef struct			s_interface t_interface;
 
 typedef struct			s_args
 {

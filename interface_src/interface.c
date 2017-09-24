@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:33:41 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 16:30:16 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 16:40:21 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int			main(int argc, char **argv)
 	a.argv = argv;
 	mlx = mlx_init();
 	if (!(i = initialize_i(mlx)))
-		return (ft_putnull("Failed to initialize interface struct"));
+		return (ft_puterror("Failed to initialize interface struct", 0));
 	a.i = i;
 	pthread_create(&t_id, NULL, client, &a);
 	mlx_loop(mlx);
-	return (NULL);
+	return (1);
 }
