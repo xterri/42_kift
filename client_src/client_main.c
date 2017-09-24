@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:20:16 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/22 02:51:31 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 13:56:05 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		main(int argc, char **argv)
 	t_socket	s2;
 	pthread_t	t_id[2];
 
-	argc != 3 ? error_message("Syntax: ./server hostname port.") : 0;
+	argc != 3 ? error_message("Syntax: ./client hostname port.") : 0;
 	pipe(s.fds) < 0 ? error_message("Piping failed") : 0;
 	(pid = fork()) < 0 ? error_message("Forking fail") : 0;
 	if (pid == 0)
