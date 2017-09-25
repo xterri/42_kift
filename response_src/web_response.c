@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 22:59:58 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/22 03:52:02 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/25 14:33:56 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*web_search(char *search)
 {
 	char	*reply;
 
-	reply = strjoin("searching for", search);
+	reply = strjoin("searching", search);
 	free(search);
 	return (reply);
 }

@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 12:14:54 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 21:51:15 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/25 14:27:22 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	*server_recv(void *socket)
 {
-	char		*buf;
+	char		buf[256];
 	t_socket	*s;
 
 	s = (t_socket *)socket;
-	if (!(buf = ft_strnew(255)))
-		error_message("Failed to malloc buf for receiving client messages.");
 	while (1)
 	{
 		ft_bzero(buf, 256);
@@ -38,6 +36,5 @@ void	*server_recv(void *socket)
 	}
 	close(s->fds[1]);
 	dup2(s->stdout_save, 1);
-	free(buf);
-	return ((void *)buf);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 18:31:43 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/18 22:15:50 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 14:11:39 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char			*ft_strwtoi(char *s);
 # define N_WRDS7 "six seven eight nine"
 # define NUMBER_WORDS N_WRDS1 N_WRDS2 N_WRDS3 N_WRDS4 N_WRDS5 N_WRDS6 N_WRDS7
 # define MORE_NUMBER_WORDS " hundred thousand million billion trillion and"
+# define ALL_NUMBER_WORDS NUMBER_WORDS MORE_NUMBER_WORDS
 
 # define IS_TEN ft_strnequ(last, "ten", 3)
 # define IS_ELEVEN ft_strnequ(last, "eleven", 6)
