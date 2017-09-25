@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:10:11 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 13:55:15 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 17:05:58 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void		string_display(t_interface *i)
 		{
 			if (start_height < TXTBX_END_H)
 				mlx_string_put(i->mlx, i->win, TXTBX_START_W,
-						start_height, 0x44AAFF, traveller->s);
+						start_height, traveller->c, traveller->s);
 			start_height += 20;
 		}
 		traveller = traveller->next;
