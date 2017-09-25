@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 14:46:02 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 19:58:23 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 14:26:20 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ int				mouse_press(int button, int x, int y, t_interface *i)
 	int		scroll_speed;
 
 	scroll_speed = 20;
-	if (button == 1)
-		if (y >= i->sb->top_start && y <= i->sb->top_start + i->sb->size)
-			if (x >= TXTBX_END_W - 20 && x <= TXTBX_END_W + 20 && (i->sc = 1))
-				i->sb->y_diff = y - i->sb->top_start;
+	if (y >= i->sb->top_start && y <= i->sb->top_start + i->sb->size)
+		if (x >= TXTBX_END_W - 20 && x <= TXTBX_END_W + 20 && (i->sc = 1))
+			i->sb->y_diff = y - i->sb->top_start;
 	if (i->sbon)
 	{
 		if (button == 4 && i->sb->top_start >= TXTBX_START_H &&
@@ -55,7 +54,11 @@ int				mouse_press(int button, int x, int y, t_interface *i)
 int				mouse_release(int button, int x, int y, t_interface *i)
 {
 	i->sc = 0;
-	i->bc = 0;
+	if (i->bc == 1)
+	{
+		i->but->but_to_display = i->but->connected;
+		i->bc = 0;
+	}
 	return (button * x * y);
 }
 

@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:20:25 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 19:40:10 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/25 15:24:41 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define BUT_Y 100
 
 # define MAX_STRINGS_TO_DISPLAY 200
+# define MAX_STRING_LEN 100
 
 typedef struct			s_image
 {
@@ -58,6 +59,7 @@ typedef struct			s_button
 	t_image				*connect;
 	t_image				*shadow;
 	t_image				*connected;
+	t_image				*but_to_display;
 }						t_button;
 
 typedef struct			s_string
@@ -104,6 +106,8 @@ int						forever_loop(t_interface *i);
 t_string				*new_node(char *s);
 t_string				*add_string_to_list(t_interface *i, char *new_string,
 						int colour);
+t_string				*add_strings(t_string *n, char *string, int colour,
+						int *cnt);
 void					free_everything(t_interface *i);
 
 #endif

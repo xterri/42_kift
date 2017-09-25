@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:10:11 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 17:05:58 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 14:27:17 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ int				forever_loop(t_interface *i)
 	if (i->bc)
 	{
 		mlx_put_image_to_window(i->mlx, i->win,
-			i->but->connect->img, BUT_X - 10, BUT_Y + 10);
+			i->but->but_to_display->img, BUT_X - 10, BUT_Y + 10);
 	}
 	else
 		mlx_put_image_to_window(i->mlx, i->win,
-			i->but->connect->img, BUT_X, BUT_Y);
+			i->but->but_to_display->img, BUT_X, BUT_Y);
 	string_display(i);
 	return (1);
 }
