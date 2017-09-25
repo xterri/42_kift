@@ -13,45 +13,17 @@ who is connected
 where is user connected
 play music
 search the web for 
+dogs
+cats
 check history
-one
-two
-three
-four
-five
-six
-seven
-eight
-nine
-ten
-eleven
-twelve
-thirteen
-fourteen
-fifteen
-sixteen
-seventeen
-eighteen
-nineteen
-twenty
-thirty
-forty
-fifty
-sixty
-seventy
-eighty
-ninety
-hundred
-thousand
-million
-billion
-trillion
+one two three four five six seven eight nine ten
+eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen
+twenty thirty forty fifty sixty seventy eighty ninety 
+hundred thousand million billion trillion
 AM
 PM
-n't
 no
 not
-none
 never
 hours
 seconds
@@ -62,3 +34,8 @@ months
 years
 good bye
 hey baka
+am I
+hi
+how are you
+what's my name
+
