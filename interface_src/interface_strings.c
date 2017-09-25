@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 13:11:10 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/25 15:26:27 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 15:46:00 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,14 @@ t_string	*add_string_to_list(t_interface *i, char *string, int colour)
 
 	if (string)
 	{
-		new = i->s;
-		if (!new)
-			new  = add_strings(new, string, colour, &i->str_count);
+		if (!i->s)
+		{
+			new = NULL;
+			i->s  = add_strings(new, string, colour, &i->str_count);
+		}
 		else
 		{
+			new = i->s;
 			while (new->next)
 				new = new->next;
 			new->next = add_strings(new->next, string,

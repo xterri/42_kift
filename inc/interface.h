@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:20:25 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/25 15:24:41 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 15:44:41 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define BUT_Y 100
 
 # define MAX_STRINGS_TO_DISPLAY 200
-# define MAX_STRING_LEN 100
+# define MAX_STRING_LEN 140
 
 typedef struct			s_image
 {

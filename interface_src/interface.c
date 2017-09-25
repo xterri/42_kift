@@ -6,12 +6,11 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:33:41 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 16:40:21 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 15:32:06 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "interface.h"
-#include "server.h"
 
 int			main(int argc, char **argv)
 {
