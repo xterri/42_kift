@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 14:45:31 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/25 14:22:00 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 15:32:09 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ t_button	*get_buttons(t_interface *i)
 		return (ft_putnull("Failed to get images/connect_shadow.xpm"));
 	if (!(but->connected = new_xpm_image(i, "images/connected.xpm")))
 		return (ft_putnull("Failed to get images/connected.xpm"));
+	but->but_to_display = but->connect;
 	return (but);
 }
