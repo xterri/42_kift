@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:52 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 16:48:30 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 19:39:25 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 */
 # include <netdb.h>
 
-typedef struct			s_interface t_interface;
+typedef struct s_interface	t_interface;
 
 typedef struct			s_socket
 {
@@ -93,6 +93,7 @@ void					*client(void *args);
 void					*client_send(void *socket);
 void					*client_recv(void *socket);
 void					client_child(t_socket *s);
+void					client_close(t_socket *s);
 void					check_special_commands(char *str, t_socket *s);
 void					get_server_connection(t_socket *s, t_socket *s2,
 						char *host, int port);

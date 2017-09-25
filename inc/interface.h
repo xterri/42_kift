@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:20:25 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 17:07:10 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/24 19:40:10 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,11 @@ typedef struct			s_interface
 	unsigned int		connected:1;
 }						t_interface;
 
-typedef struct			s_args t_args;
+typedef struct s_args	t_args;
+typedef struct s_socket	t_socket;
 
-void					client_standby(t_interface *i);
+void					client_standby(t_interface *i, t_socket *s,
+						t_socket *s2);
 void					*interface(void *j);
 t_interface				*initialize_i(void *mlx);
 t_image					*new_image(t_interface *i, int width, int height);

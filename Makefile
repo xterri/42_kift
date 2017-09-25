@@ -18,9 +18,9 @@ FILES = server_main \
 		server_response server_response_command \
 		get_client_connection
 
-FILES2 = client_main client_standby \
+FILES2 = client_main \
 		 client_send client_recv \
-		 client_child check_special_commands \
+		 client_child check_special_commands client_standby client_close \
 		 get_server_connection
 
 FILES3 = history_log send_history recv_history \

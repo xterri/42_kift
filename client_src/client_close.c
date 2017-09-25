@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_standby.c                                   :+:      :+:    :+:   */
+/*   client_close.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/24 15:22:40 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 19:28:39 by thuynh           ###   ########.fr       */
+/*   Created: 2017/09/24 19:33:19 by thuynh            #+#    #+#             */
+/*   Updated: 2017/09/24 19:33:56 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.h"
 
-void	client_standby(t_interface *i, t_socket *s, t_socket *s2)
+void	client_close(t_socket *s)
 {
-	while (!i->bc)
-		;
-	s->i = i;
-	s2->i = i;
+	close(s->server_socket_fd);
+	close(s->client_socket_fd);
 }
