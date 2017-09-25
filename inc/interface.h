@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:20:25 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 16:39:11 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/24 17:07:10 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct			s_button
 typedef struct			s_string
 {
 	char				*s;
+	int					c;
 	struct s_string		*next;
 }						t_string;
 
@@ -99,7 +100,8 @@ int						exit_window(t_interface *i);
 int						key_press(int keycode, t_interface *i);
 int						forever_loop(t_interface *i);
 t_string				*new_node(char *s);
-t_string				*add_string_to_list(t_interface *i, char *new_string);
+t_string				*add_string_to_list(t_interface *i, char *new_string,
+						int colour);
 void					free_everything(t_interface *i);
 
 #endif
