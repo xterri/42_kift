@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:20:25 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 19:40:10 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/25 14:34:20 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define TXTBX_END_H 1150
 # define TXTBX_START_W 100
 # define TXTBX_END_W 1500
+# define MAX_STRING_LEN 100
 
 # define BUT_X 900
 # define BUT_Y 100
@@ -58,6 +59,7 @@ typedef struct			s_button
 	t_image				*connect;
 	t_image				*shadow;
 	t_image				*connected;
+	t_image				*but_to_display;
 }						t_button;
 
 typedef struct			s_string

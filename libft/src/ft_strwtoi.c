@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/17 19:40:55 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/18 22:47:12 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 14:10:54 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static char	*get_string_to_parse(char *s, int string_len)
 	return (new);
 }
 
-static int	next_word_is_okay(char *s, int totallen, char **wordzies, char *last)
+static int	next_word_is_okay(char *s, int total, char **wordzies, char *last)
 {
 	int		i;
 
 	i = -1;
 	while (++i < 34)
 	{
-		if (ft_strnequ(&s[totallen], wordzies[i], ft_strlen(wordzies[i])))
+		if (ft_strnequ(&s[total], wordzies[i], ft_strlen(wordzies[i])))
 		{
 			if (i == 33)
 				return (IS_AND_OKAY);
@@ -80,7 +80,7 @@ char		*ft_strwtoi(char *s)
 	if (s)
 	{
 		i = -1;
-		wordzies = ft_strsplits(NUMBER_WORDS MORE_NUMBER_WORDS, " ");
+		wordzies = ft_strsplits(ALL_NUMBER_WORDS, " ");
 		while (s[++i])
 		{
 			if ((wordlen = nbr_str_len(&s[i], 0, wordzies, 0)))
