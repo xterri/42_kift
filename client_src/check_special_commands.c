@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 11:49:37 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 22:10:24 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 22:55:48 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void	check_special_commands(char *str, t_socket *s)
 				"'https://www.eventbrite.com/d/ca--fremont/events/'");
 	if (ft_strequ(str, "opening up gats.i o"))
 		system("open "
-				"-a \"Applications/Google Chrome.app/\" "
+				"-a \"/Applications/Google Chrome.app/\" "
 				"'https://gats.io/'");
 }

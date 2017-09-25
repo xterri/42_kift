@@ -1,6 +1,8 @@
 A - Main 
+pronounce: verbosity is 1
+LETTER-A - Morpheme: LETTER-A 
+LETTER-M - Morpheme: LETTER-M 
 ALARM - Main 
-AM - Main 
 AN - Main 
 ARE - Main 
 BAKA - Main 
@@ -30,7 +32,6 @@ FOUR - Main
 FOURTEEN - Main 
 FREMONT - Main 
 FUCK - Main 
-pronounce: verbosity is 1
 GATS - By LtoS rules
 GOOD - Main 
 HEY - Main 
@@ -39,12 +40,11 @@ HISTORY - Main
 HOURS - Main 
 HOW - Main 
 HUNDRED - Main 
-I - Main 
+IN - Main 
 IS - Main 
 JOKE - Main 
 LIGHTS - Main 
 LONDON - Main 
-M - Main 
 ME - Main 
 MESSAGE - Main 
 MILLION - Main 
@@ -63,7 +63,7 @@ OFF - Main
 ON - Main 
 ONE - Main 
 OPEN - Main 
-P - Main 
+P.M. - Main 
 PARIS - Main 
 PLAY - Main 
 SEARCH - Main 

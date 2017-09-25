@@ -1,9 +1,4 @@
 <s> HI </s>
-<s> OPEN GATS </s>
-<s> FUCK SHIT BITCH </s>
-<s> HOW ARE YOU </s>
-<s> WHAT'S YOUR NAME </s>
-<s> WHO ARE YOU </s>
 <s> HEY BAKA </s>
 <s> GOOD BYE </s>
 <s> SET AN ALARM </s>
@@ -14,7 +9,7 @@
 <s> SEND SMS </s>
 <s> SEND MESSAGE </s>
 <s> CHECK EVENTS </s>
-<s> CHECK WEATHER </s>
+<s> CHECK WEATHER IN </s>
 <s> CHECK TEMPERATURE </s>
 <s> CHECK TRAFFIC </s>
 <s> WHO IS CONNECTED </s>
@@ -23,7 +18,11 @@
 <s> PLAY MUSIC </s>
 <s> SEARCH THE WEB FOR </s>
 <s> CHECK HISTORY </s>
-<s> AM I </s>
+<s> OPEN GATS </s>
+<s> FUCK SHIT BITCH </s>
+<s> HOW ARE YOU </s>
+<s> WHAT'S YOUR NAME </s>
+<s> WHO ARE YOU </s>
 <s> DOGS </s>
 <s> CATS </s>
 <s> PARIS </s>
@@ -37,8 +36,8 @@
 <s> ELEVEN TWELVE THIRTEEN FOURTEEN FIFTEEN SIXTEEN SEVENTEEN EIGHTEEN NINETEEN </s>
 <s> TWENTY THIRTY FORTY FIFTY SIXTY SEVENTY EIGHTY NINETY </s>
 <s> HUNDRED THOUSAND MILLION BILLION TRILLION </s>
-<s> A M </s>
-<s> P M </s>
+<s> A.M. </s>
+<s> P.M. </s>
 <s> NO </s>
 <s> NOT </s>
 <s> NEVER </s>

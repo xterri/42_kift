@@ -1,9 +1,4 @@
 hi
-open gats
-fuck shit bitch
-how are you
-what's your name
-who are you
 hey baka
 good bye
 set an alarm
@@ -14,7 +9,7 @@ send email
 send sms
 send message
 check events
-check weather
+check weather in
 check temperature
 check traffic
 who is connected
@@ -23,7 +18,11 @@ tell me a joke
 play music
 search the web for 
 check history
-am I
+open gats
+fuck shit bitch
+how are you
+what's your name
+who are you
 dogs
 cats
 paris
@@ -37,8 +36,8 @@ one two three four five six seven eight nine ten
 eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen
 twenty thirty forty fifty sixty seventy eighty ninety 
 hundred thousand million billion trillion
-A M
-P M
+A.M.
+P.M.
 no
 not
 never
