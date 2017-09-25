@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 13:11:10 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/25 15:10:03 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 15:26:27 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,15 @@ t_string	*new_string_node(char *s, int colour)
 	return (new);
 }
 
-static t_string *add_strings(t_string *n, char *string, int colour, int *cnt)
+t_string	*add_strings(t_string *n, char *string, int colour, int *cnt)
 {
 	char		tmp[MAX_STRING_LEN + 1];
-	t_string	*s;
 
-	*cnt++;
+	*cnt += 1;
 	ft_bzero(tmp, MAX_STRING_LEN + 1);
 	if (ft_strlen(string) > MAX_STRING_LEN)
 	{
-		ft_strcpy(tmp, string, MAX_STRING_LEN);
+		ft_strncpy(tmp, string, MAX_STRING_LEN);
 		n = new_string_node(tmp, colour);
 		n->next = add_strings(n->next, &string[MAX_STRING_LEN], colour, cnt);
 	}
@@ -62,13 +61,13 @@ t_string	*add_string_to_list(t_interface *i, char *string, int colour)
 	{
 		new = i->s;
 		if (!new)
-			new  = add_strings_to_list(new, string, colour, &i->strcount);
+			new  = add_strings(new, string, colour, &i->str_count);
 		else
 		{
 			while (new->next)
 				new = new->next;
-			new->next = add_strings_to_list(new->next, string,
-					colour, &i->strcount);
+			new->next = add_strings(new->next, string,
+					colour, &i->str_count);
 			while (i->str_count > MAX_STRINGS_TO_DISPLAY && --i->str_count)
 				delete_first_node(i);
 		}

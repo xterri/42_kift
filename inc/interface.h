@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:20:25 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/25 14:34:20 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 15:24:41 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@
 # define TXTBX_END_H 1150
 # define TXTBX_START_W 100
 # define TXTBX_END_W 1500
-# define MAX_STRING_LEN 100
 
 # define BUT_X 900
 # define BUT_Y 100
 
 # define MAX_STRINGS_TO_DISPLAY 200
+# define MAX_STRING_LEN 100
 
 typedef struct			s_image
 {
@@ -106,6 +106,8 @@ int						forever_loop(t_interface *i);
 t_string				*new_node(char *s);
 t_string				*add_string_to_list(t_interface *i, char *new_string,
 						int colour);
+t_string				*add_strings(t_string *n, char *string, int colour,
+						int *cnt);
 void					free_everything(t_interface *i);
 
 #endif
