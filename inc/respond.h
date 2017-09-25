@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 19:18:54 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/23 15:55:22 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 22:28:12 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@
 # define WHERE 11
 # define BYE 12
 # define EVENTS 13
+# define GATS 14
+# define SWEAR 15
+# define ID 16
+# define HOW 17
+# define JOKE 18
 
 char	*respond(char *str);
 int		get_topic(char *str);
@@ -57,8 +62,13 @@ char	*history_response(char *str, int negation);
 char	*text_response(char *str, int negation);
 char	*who_response(char *str, int negation);
 char	*where_response(char *str, int negation);
-char	*bye_response(char *str);
+char	*bye_response(char *str, int negation);
 char	*events_response(char *str, int negation);
+char	*gats_response(char *str, int negation);
+char	*swear_response(char *str, int negation);
+char	*id_response(char *str, int negation);
+char	*how_response(char *str, int negation);
+char	*joke_response(char *str, int negation);
 
 char	*strjoin(char *str1, char *str2);
 void	free_array(char **arr);

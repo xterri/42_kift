@@ -1,3 +1,11 @@
+hi
+open gats
+fuck shit bitch
+how are you
+what's your name
+who are you
+hey baka
+good bye
 set an alarm
 set timer
 turn on lights
@@ -11,17 +19,26 @@ check temperature
 check traffic
 who is connected
 where is user connected
+tell me a joke
 play music
 search the web for 
+check history
+am I
 dogs
 cats
-check history
+paris
+london
+fremont
+new york
+california
+canada
+computers
 one two three four five six seven eight nine ten
 eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen
 twenty thirty forty fifty sixty seventy eighty ninety 
 hundred thousand million billion trillion
-AM
-PM
+A M
+P M
 no
 not
 never
@@ -32,10 +49,3 @@ days
 weeks
 months
 years
-good bye
-hey baka
-am I
-hi
-how are you
-what's my name
-

@@ -30,7 +30,8 @@ FILES4 = alarm_response bye_response count_negations email_response \
 		 find_time_phrase get_first_num get_topic history_response \
 		 lights_response music_response respond text_response traffic_response \
 		 weather_at weather_response where_response web_response who_response \
-		 events_response \
+		 events_response gats_response swear_response id_response \
+		 how_response joke_response \
 		 free_array strjoin
 
 FILES5 = interface interface_images interface_initialize interface_loop \

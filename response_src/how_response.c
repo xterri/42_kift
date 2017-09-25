@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_child.c                                     :+:      :+:    :+:   */
+/*   how_response.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/22 02:47:19 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 22:33:48 by thuynh           ###   ########.fr       */
+/*   Created: 2017/09/24 22:20:33 by thuynh            #+#    #+#             */
+/*   Updated: 2017/09/24 22:26:28 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.h"
 
-void	client_child(t_socket *s)
+char	*how_response(char *str, int negation)
 {
-	dup2(s->fds[1], 1);
-	system("pocketsphinx_continuous -inmic yes -lm lm_dict/0399.lm \
-			-dict lm_dict/0399.dic -logfn /dev/null");
-	close(s->fds[1]);
-	dup2(s->stdout_save, 1);
+	(void)str;
+	if (negation)
+		return (ft_strdup("I think you ought to know, I'm feeling very \
+					depressed. Not like you care, nobody ever cares"));
+	return (ft_strdup("I'm very fine, and you?"));
 }

@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 12:14:54 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/22 02:19:08 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 21:51:15 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	*server_recv(void *socket)
 			ft_putendl("Client Disconnected");
 			break ;
 		}
+		(ft_strequ(buf, "hi\n")) ? send(s->client_socket_fd, "Hello", 5, 0) : 0;
 		if (ft_strstr(buf, "hey baka") || ft_strstr(buf, "good bye"))
 			server_response_command(buf, s);
 		if (ft_strstr(buf, "good bye"))

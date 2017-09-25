@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_child.c                                     :+:      :+:    :+:   */
+/*   gats_response.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/22 02:47:19 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 22:33:48 by thuynh           ###   ########.fr       */
+/*   Created: 2017/09/24 21:53:42 by thuynh            #+#    #+#             */
+/*   Updated: 2017/09/24 22:09:10 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.h"
 
-void	client_child(t_socket *s)
+char	*gats_response(char *str, int negation)
 {
-	dup2(s->fds[1], 1);
-	system("pocketsphinx_continuous -inmic yes -lm lm_dict/0399.lm \
-			-dict lm_dict/0399.dic -logfn /dev/null");
-	close(s->fds[1]);
-	dup2(s->stdout_save, 1);
+	(void)str;
+	if (negation)
+		return (ft_strdup("okay I won't open gats.io"));
+	return (ft_strdup("opening up gats.i o"));
 }

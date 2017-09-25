@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_child.c                                     :+:      :+:    :+:   */
+/*   id_response.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/22 02:47:19 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 22:33:48 by thuynh           ###   ########.fr       */
+/*   Created: 2017/09/24 22:12:04 by thuynh            #+#    #+#             */
+/*   Updated: 2017/09/24 22:19:30 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.h"
 
-void	client_child(t_socket *s)
+char	*id_response(char *str, int negation)
 {
-	dup2(s->fds[1], 1);
-	system("pocketsphinx_continuous -inmic yes -lm lm_dict/0399.lm \
-			-dict lm_dict/0399.dic -logfn /dev/null");
-	close(s->fds[1]);
-	dup2(s->stdout_save, 1);
+	(void)str;
+	if (negation)
+		return (ft_strdup("I am not, not BAKA"));
+	return (ft_strdup("My name is BAKA, short for 'Brilliant Autonomous \
+				Knowledgable A.I. Nice to meet you."));
 }

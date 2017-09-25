@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 12:55:01 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/22 02:12:08 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 21:49:45 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	server_response_command(char *str, t_socket *s)
 {
 	if (ft_strstr(str, "hey baka"))
 	{
-		if ((s->n = send(s->client_socket_fd, "Hello", 5, 0)) < 0)
+		if ((s->n = 
+		send(s->client_socket_fd, "Hello, what can I do you for?", 29, 0)) < 0)
 			error_message("Error writing to client socket fd.");
 		ft_bzero(str, 256);
 	}

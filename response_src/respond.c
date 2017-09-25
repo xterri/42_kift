@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 21:49:54 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/23 15:59:25 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 22:30:51 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,18 @@ static char	*response_pt2(int topic, char *str, int negation)
 {
 	if (topic == EVENTS)
 		return (events_response(str, negation));
+	if (topic == GATS)
+		return (gats_response(str, negation));
+	if (topic == HOW)
+		return (how_response(str, negation));
+	if (topic == SWEAR)
+		return (swear_response(str, negation));
 	if (topic == WHO)
 		return (who_response(str, negation));
 	if (topic == WHERE)
 		return (where_response(str, negation));
+	if (topic == ID)
+		return (id_response(str, negation));
 	if (topic == TEXT)
 		return (text_response(str, negation));
 	return (unsure_response());
@@ -33,7 +41,7 @@ static char	*response_pt2(int topic, char *str, int negation)
 static char	*response(int topic, char *str, int negation)
 {
 	if (topic == BYE)
-		return (bye_response(str));
+		return (bye_response(str, negation));
 	if (topic == ALARM)
 		return (alarm_response(str, negation));
 	if (topic == LIGHTS)
@@ -50,6 +58,8 @@ static char	*response(int topic, char *str, int negation)
 		return (web_response(str, negation));
 	if (topic == HISTORY)
 		return (history_response(str, negation));
+	if (topic == JOKE)
+		return (joke_response(str, negation));
 	return (response_pt2(topic, str, negation));
 }
 
