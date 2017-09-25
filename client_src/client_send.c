@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:59:50 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 17:06:44 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 17:20:14 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*client_send(void *socket)
 			ft_strtolower(buf);
 			ft_strcpy(to_display, "YOU: ");
 			ft_strcat(to_display, buf);
-			add_string_to_list(s->i, to_display);
+			add_string_to_list(s->i, to_display, 0x33D1FF);
 		}
 		if ((s->n = send(s->client_socket_fd, buf, s->n, 0)) < 0)
 			error_message("Error writing in socket.");
