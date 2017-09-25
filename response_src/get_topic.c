@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 18:55:29 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/25 14:19:17 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/25 15:26:28 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ static int	get_topic_pt2(char *str)
 		return (HISTORY);
 	if (ft_strstr(str, " gats "))
 		return (GATS);
-	if (ft_strstr(str, " fuck ") || ft_strstr(str, " shit ") ||
-			ft_strstr(str, " bitch "))
-		return (SWEAR);
+	if (ft_strstr(str, " how are you "))
+		return (HOW);
 	if (ft_strstr(str, " joke "))
 		return (JOKE);
 	if (ft_strstr(str, " what's your name ") || ft_strstr(str, " who are you "))
@@ -31,6 +30,9 @@ static int	get_topic_pt2(char *str)
 		return (WHO);
 	if (ft_strstr(str, " where ") && ft_strstr(str, " connect"))
 		return (WHERE);
+	if (ft_strstr(str, " fuck ") || ft_strstr(str, " shit ") ||
+			ft_strstr(str, " bitch "))
+		return(SWEAR);
 	return (0);
 }
 
