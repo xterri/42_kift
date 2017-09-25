@@ -24,7 +24,7 @@ FILES2 = client_main \
 		 get_server_connection
 
 FILES3 = history_log send_history recv_history \
-		 get_next_line error_message server_address
+		 get_next_line error_message server_address send_terminator
 
 FILES4 = alarm_response bye_response count_negations email_response \
 		 find_time_phrase get_first_num get_topic history_response \

@@ -6,14 +6,15 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 14:41:01 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/23 22:28:52 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 16:23:29 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "interface.h"
+#include "server.h"
 
 int				exit_window(t_interface *i)
 {
+	send_terminator(i->socket->client_socket_fd);
 	free_everything(i);
 	exit(0);
 	return (1);

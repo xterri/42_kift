@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:20:16 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 19:34:13 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/25 16:18:07 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	*client(void *args)
 	else
 	{
 		get_server_connection(&s, &s2, a->argv[1], ft_atoi(a->argv[2]));
+		a->i->socket = &s;
 		ft_memcpy(&s2, (void *)&s, sizeof(s));
 		pthread_create(&t_id[0], NULL, client_recv, &s);
 		pthread_create(&t_id[1], NULL, client_send, &s2);

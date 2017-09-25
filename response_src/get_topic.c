@@ -6,7 +6,7 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 18:55:29 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/25 15:26:28 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/25 16:35:23 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	get_topic_pt2(char *str)
 		return (WHERE);
 	if (ft_strstr(str, " fuck ") || ft_strstr(str, " shit ") ||
 			ft_strstr(str, " bitch "))
-		return(SWEAR);
+		return (SWEAR);
 	return (0);
 }
 

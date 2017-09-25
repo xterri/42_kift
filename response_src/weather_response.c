@@ -6,11 +6,25 @@
 /*   By: twalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 22:00:52 by twalton           #+#    #+#             */
-/*   Updated: 2017/09/22 03:51:40 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/25 16:34:51 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.h"
+
+static int	check_actual_name(char *str)
+{
+	int	toggle;
+
+	toggle = 0;
+	while (*str)
+	{
+		if (isalpha(*str))
+			toggle = 1;
+		++str;
+	}
+	return (toggle);
+}
 
 static char	*get_weather_loc(char *str)
 {
@@ -28,6 +42,11 @@ static char	*get_weather_loc(char *str)
 	location = (char *)malloc(sizeof(char) * (word_size + 1));
 	ft_memmove(location, pstart, word_size);
 	location[word_size] = '\0';
+	if (!(check_actual_name(location)))
+	{
+		free(location);
+		return (NULL);
+	}
 	return (location);
 }
 

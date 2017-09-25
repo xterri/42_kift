@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:20:25 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/25 15:44:41 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/25 16:11:17 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ typedef struct			s_string
 	struct s_string		*next;
 }						t_string;
 
+typedef struct s_socket	t_socket;
+
 typedef struct			s_interface
 {
 	void				*mlx;
@@ -83,6 +85,7 @@ typedef struct			s_interface
 	unsigned int		sbon:1;
 	unsigned int		bc:1;
 	unsigned int		connected:1;
+	t_socket			*socket;
 }						t_interface;
 
 typedef struct s_args	t_args;

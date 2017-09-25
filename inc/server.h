@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:52 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/25 13:57:58 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 16:09:42 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void					recv_history(int cli_fd);
 */
 int						get_next_line(const int fd, char **line);
 void					error_message(const char *msg);
+void					send_terminator(int cli_fd);
 void					server_address(struct sockaddr_in *serv, t_socket *s);
 
 #endif
