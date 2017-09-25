@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:10:11 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/25 15:34:26 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/25 15:35:54 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int				forever_loop(t_interface *i)
 	else
 		mlx_put_image_to_window(i->mlx, i->win,
 			i->but->but_to_display->img, BUT_X, BUT_Y);
-	ft_putstr("heterwealrkjasdlfkj");
 	string_display(i);
 	return (1);
 }
