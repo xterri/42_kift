@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 18:00:56 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/24 13:54:43 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/24 16:45:35 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	*client_recv(void *socket)
 			error_message("Error reading socket.");
 		ft_putstr("BAKA: ");
 		ft_putendl(buf);
+		
 		snprintf(buf2, sizeof(buf2), "say -v \"kyoko\" \"%s\"", buf);
 		system(buf2);
 		check_special_commands(buf, s);

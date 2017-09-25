@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 14:05:52 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/24 16:39:39 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/24 16:48:30 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 */
 # include <netdb.h>
 
+typedef struct			s_interface t_interface;
+
 typedef struct			s_socket
 {
 	int					server_socket_fd;
@@ -47,6 +49,7 @@ typedef struct			s_socket
 	char				*client_ip;
 	unsigned short		port;
 	unsigned int		clilen;
+	t_interface			*i;
 }						t_socket;
 
 /*
@@ -66,7 +69,6 @@ typedef struct			s_line
 /*
 ** Struct for command line arguments
 */
-typedef struct			s_interface t_interface;
 
 typedef struct			s_args
 {
