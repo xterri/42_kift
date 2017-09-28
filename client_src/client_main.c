@@ -6,7 +6,7 @@
 /*   By: bpierce <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:20:16 by bpierce           #+#    #+#             */
-/*   Updated: 2017/09/25 16:18:07 by thuynh           ###   ########.fr       */
+/*   Updated: 2017/09/28 14:12:14 by thuynh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ void	*client(void *args)
 	client_standby(a->i, &s, &s2);
 	pipe(s.fds) < 0 ? error_message("Piping failed") : 0;
 	(pid = fork()) < 0 ? error_message("Forking fail") : 0;
-	if (pid == 0)
-		client_child(&s);
-	else
+	pid == 0 ? client_child(&s) : 0;
+	if (pid > 0)
 	{
 		get_server_connection(&s, &s2, a->argv[1], ft_atoi(a->argv[2]));
 		a->i->socket = &s;
