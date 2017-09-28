@@ -6,7 +6,7 @@
 /*   By: thuynh <thuynh@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 17:20:25 by thuynh            #+#    #+#             */
-/*   Updated: 2017/09/25 18:14:46 by bpierce          ###   ########.fr       */
+/*   Updated: 2017/09/28 14:06:53 by bpierce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@
 
 # define MAX_STRINGS_TO_DISPLAY 200
 # define MAX_STRING_LEN 135
+
+typedef struct s_socket		t_socket;
+
+typedef struct s_args		t_args;
 
 typedef struct			s_image
 {
@@ -69,8 +73,6 @@ typedef struct			s_string
 	struct s_string		*next;
 }						t_string;
 
-typedef struct s_socket	t_socket;
-
 typedef struct			s_interface
 {
 	void				*mlx;
@@ -87,9 +89,6 @@ typedef struct			s_interface
 	unsigned int		connected:1;
 	t_socket			*socket;
 }						t_interface;
-
-typedef struct s_args	t_args;
-typedef struct s_socket	t_socket;
 
 void					client_standby(t_interface *i, t_socket *s,
 						t_socket *s2);
@@ -112,5 +111,4 @@ t_string				*add_string_to_list(t_interface *i, char *new_string,
 t_string				*add_strings(t_string *n, char *string, int colour,
 						int *cnt);
 void					free_everything(t_interface *i);
-
 #endif
